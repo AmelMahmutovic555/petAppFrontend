@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router";
 import "./style/Navbar.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import axios from "axios";
 import { AuthContext } from "../authContext/AuthContext";
 

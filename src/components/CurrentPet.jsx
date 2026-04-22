@@ -45,7 +45,7 @@ export default function CurrentPet() {
     }
 
     getInfo();
-  }, [location.pathname, apiUrl]);
+  }, [location.pathname, apiUrl, name]);
 
   function openDialog() {
     dialogRef.current?.showModal();

@@ -128,6 +128,7 @@
 #dialog > div > div {
   display: flex;
   justify-content: space-between;
+  /* align-items: center; */
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -136,6 +137,8 @@
   padding: 1rem 3rem;
   /* font-size: 1.5rem; */
   border-radius: 10%;
+  margin: auto;
+  /* align-self: center; */
   /* max-width: 100px; */
 }
 

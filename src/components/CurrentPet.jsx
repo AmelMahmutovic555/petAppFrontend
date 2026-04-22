@@ -40,7 +40,7 @@ export default function CurrentPet() {
         console.error(error);
         setPet(null);
       } finally {
-        setLoading(false);
+        // setLoading(false);
       }
     }
 

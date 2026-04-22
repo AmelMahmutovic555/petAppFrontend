@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Blog from "./Blog.jsx";
 import "./style/Home.css";
-import axios from "axios";
+// import axios from "axios";
 import Footer from "./Footer.jsx";
 import { useLocation } from "react-router";
 
@@ -9,7 +9,7 @@ export default function Home() {
   const location = useLocation();
   useEffect(() => {
     localStorage.setItem("currentLocation", location.pathname);
-  }, []);
+  }, [location.pathname]);
   return (
     <>
       <section className="homeParent">

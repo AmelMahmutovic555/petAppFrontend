@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useContext, useEffect, useReducer, useRef, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import "./style/CurrentPet.css";
 import { AuthContext } from "../authContext/AuthContext";
 export default function CurrentPet() {
   const [pet, setPet] = useState({});
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const { name } = useParams();
 
@@ -20,10 +20,10 @@ export default function CurrentPet() {
 
   const {
     user,
-    successBabysit,
+    // successBabysit,
     setSuccessBabysit,
-    assignedPet,
-    setAssignedPet,
+    // assignedPet,
+    // setAssignedPet,
   } = useContext(AuthContext);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function CurrentPet() {
     }
 
     getInfo();
-  }, [location.pathname]);
+  }, [location.pathname, apiUrl]);
 
   function openDialog() {
     dialogRef.current?.showModal();

@@ -1,11 +1,5 @@
 import axios from "axios";
-import {
-  Children,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
 export const AuthContext = createContext();
@@ -14,7 +8,7 @@ export default function AuthProvider({ children }) {
   const [apiUrl] = useState(process.env.REACT_APP_API_URL);
 
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [successBabysit, setSuccessBabysit] = useState("");
   const [assignedPet, setAssignedPet] = useState({});
   const location = useLocation();
@@ -42,7 +36,7 @@ export default function AuthProvider({ children }) {
     }
 
     getInfo();
-  }, [location.pathname]);
+  }, [location.pathname, apiUrl]);
 
   return (
     <AuthContext.Provider
@@ -53,6 +47,7 @@ export default function AuthProvider({ children }) {
         setSuccessBabysit,
         assignedPet,
         setAssignedPet,
+        apiUrl,
       }}
     >
       {children}

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router";
 import "./style/Blog.css";
 
 export default function Blog() {
@@ -7,7 +7,7 @@ export default function Blog() {
   const location = useLocation();
   useEffect(() => {
     localStorage.setItem("currentLocation", location.pathname);
-  }, []);
+  }, [location.pathname]);
   return (
     <>
       <section className="blogParent">

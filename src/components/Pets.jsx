@@ -1,6 +1,6 @@
 import "./style/Pets.css";
 import { Link, useLocation } from "react-router";
-import Footer from "./Footer.jsx";
+// import Footer from "./Footer.jsx";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../authContext/AuthContext.jsx";
@@ -13,9 +13,9 @@ export default function Pets() {
 
   const {
     successBabysit,
-    setSuccessBabysit,
-    assignedPet,
-    setAssignedPet,
+    // setSuccessBabysit,
+    // assignedPet,
+    // setAssignedPet,
     apiUrl,
   } = useContext(AuthContext);
   useEffect(() => {
@@ -38,14 +38,14 @@ export default function Pets() {
       }
     }
 
-    const current = localStorage.getItem("currentLocation");
+    // const current = localStorage.getItem("currentLocation");
 
     // if (!current.startsWith("/pets/")) {
     //   setSuccessBabysit("");
     // }
 
     getInfo();
-  }, [location.pathname]);
+  }, [location.pathname, apiUrl]);
 
   async function handleChange(event) {
     const { value } = event.target;

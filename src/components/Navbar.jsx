@@ -9,7 +9,7 @@ export default function Navbar() {
   const location = useLocation();
 
   // const [user, setUser] = useState(null);
-  const [sidebar, setSidebar] = useState(false);
+  // const [sidebar, setSidebar] = useState(false);
   // const [loading, setLoading] = useState(true);
 
   const { user, setUser, apiUrl } = useContext(AuthContext);
@@ -36,9 +36,9 @@ export default function Navbar() {
     }
   }
 
-  function handleSidebar() {
-    setSidebar((prevState) => !prevState);
-  }
+  // function handleSidebar() {
+  //   setSidebar((prevState) => !prevState);
+  // }
 
   // if (loading) {
   // return <p>Loading...</p>;

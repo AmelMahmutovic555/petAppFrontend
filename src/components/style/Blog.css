@@ -1,0 +1,134 @@
+@keyframes appear1 {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: translateX(300%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.blogParent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem;
+  flex-wrap: wrap;
+  /* background: linear-gradient(135deg, #f5efe6 0%, #efe7da 100%); */
+  /* background: radial-gradient(rgb(219, 219, 219), rgb(255, 255, 255), rgb(173, 170, 170)); */
+
+  /* gap: 4rem; */
+}
+
+.blogParent > div:first-of-type > * {
+  transform: translateX(-300%);
+  max-width: 100%;
+  border-radius: 10%;
+  box-shadow: 55px 35px 50px gray;
+  animation-name: appear1;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.blogParent > div:last-of-type > * {
+  transform: translateX(300%);
+
+  /* font-family: sans-serif; */
+  text-align: center;
+  font-style: italic;
+  font-weight: 900;
+  padding: 1rem;
+  animation-name: appear;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.apply {
+  font-size: 3rem;
+  text-transform: uppercase;
+  background: radial-gradient(
+    circle,
+    rgb(36, 22, 22) 0%,
+    rgb(109, 105, 95) 10%,
+    rgb(51, 41, 41) 90%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 3px 13px 30px black;
+}
+
+.applyText {
+  background: radial-gradient(
+    circle,
+    rgb(36, 22, 22) 0%,
+    rgb(109, 105, 95) 10%,
+    rgb(51, 41, 41) 90%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 3px 13px 30px black;
+}
+
+.petsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  /* color: black; */
+}
+
+.or {
+  background: radial-gradient(
+    circle,
+    rgb(36, 22, 22) 0%,
+    rgb(109, 105, 95) 10%,
+    rgb(51, 41, 41) 90%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 3px 13px 30px black;
+}
+
+.petsBtn > * {
+  padding: 1rem 3rem;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  background: radial-gradient(
+    rgb(219, 219, 219),
+    rgb(255, 255, 255),
+    rgb(173, 170, 170)
+  );
+  border-radius: 10%;
+  color: black;
+  /* z-index: 9999; */
+}
+
+.petsBtn > *:hover {
+  transform: translateY(-5%);
+  transition: transform 1s ease;
+  background: gray;
+  color: rgb(255, 255, 255);
+  border-color: white;
+}
+
+.or::before {
+  content: "-----";
+  margin-right: 0.3rem;
+}
+
+.or::after {
+  content: "-----";
+  margin-left: 0.3rem;
+}

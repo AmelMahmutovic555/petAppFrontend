@@ -1,0 +1,82 @@
+.signupContainer {
+  /* background-color: aqua; */
+  /* height: 100vh; */
+  /* width: 100%; */
+  /* padding-block: 0.1rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 30%; */
+  /* margin: 10vh auto; */
+  padding: 3rem;
+  background: radial-gradient(
+    rgb(222, 224, 225),
+    rgb(192, 192, 192),
+    rgb(180, 180, 180),
+    rgb(161, 165, 168)
+  );
+  /* background: radial-gradient(
+    rgb(170, 190, 197),
+    rgb(192, 199, 202),
+    rgb(172, 180, 182),
+    rgb(209, 210, 212)
+  ); */
+  min-height: 100vh;
+}
+
+.signupContainer > div {
+  font-size: 1rem;
+  background-color: white;
+  padding: 0 5rem;
+  border-radius: 10%;
+  box-shadow:
+    10px 10px 30px rgb(169, 169, 169) inset,
+    -30px 10px 30px rgb(193, 193, 193) inset;
+  /* background-color: aqua; */
+}
+
+.signupForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  /* max-width: 1000px; */
+  margin: 10vh auto;
+  gap: 1rem;
+  /* margin-top: 50vh; */
+}
+
+.signupForm > label {
+  align-self: start;
+}
+.signupForm > input {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: 5%;
+  border: none;
+}
+
+.signupForm > input {
+  outline: 1px solid black;
+}
+
+.signupForm > input:focus {
+  outline: 1px solid black;
+}
+
+.signupForm > button {
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 10%;
+  /* background: radial-gradient(rgb(104, 104, 104), rgb(178, 178, 178), rgb(236, 236, 236)); */
+  /* border-radius: 10%; */
+  /* border: none; */
+  /* background: transparent; */
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

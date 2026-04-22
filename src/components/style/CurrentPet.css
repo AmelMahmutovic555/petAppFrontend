@@ -1,0 +1,179 @@
+.currPetParent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 1rem;
+  background: radial-gradient(
+    rgb(222, 224, 225),
+    rgb(192, 192, 192),
+    rgb(180, 180, 180),
+    rgb(161, 165, 168)
+  );
+  /* background: radial-gradient(
+    rgb(170, 190, 197),
+    rgb(192, 199, 202),
+    rgb(172, 180, 182),
+    rgb(209, 210, 212)
+  ); */
+  min-height: 100dvh;
+  /* z-index: -10000; */
+  /* max-width: 30rem; */
+
+  /* margin-top: 25vh; */
+}
+
+.currPetParent > div {
+  background-color: white;
+  box-shadow: 20px 20px 100px rgb(120, 120, 120) inset;
+  border: 5px solid black;
+  border-radius: 6%;
+  /* z-index: 10000; */
+  /* max-width: 1000px; */
+
+  min-height: 60vh;
+  /* max-width: 50vw; */
+
+  /* padding-block: 5rem; */
+  margin: 5rem;
+  /* padding-inline: 1rem; */
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+}
+
+.currPetParent > div > * {
+  /* flex: 1 1 0; */
+  /* margin: 3rem; */
+}
+
+.petInfo {
+  margin: auto;
+  padding-inline: 5rem;
+}
+
+.petInfo > * {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.petImg {
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  /* border-left-radius: 6%; */
+  /* border: 1px solid black; */
+  border-right: none;
+  /* z-index: -100; */
+  max-width: 500px;
+  /* height: 100%; */
+}
+
+.babysitBtn {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 870px) {
+  .currPetParent > div {
+    flex-direction: column;
+    /* width: 100%; */
+  }
+  .petImg {
+    border-radius: 8%;
+    max-width: 100%;
+  }
+
+  .petInfo > * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 900;
+  }
+}
+
+#dialog {
+  margin: auto;
+  padding: 3rem 5rem;
+  border-radius: 24px;
+  border: none;
+  max-width: 500px;
+  width: 90%;
+}
+
+#dialog > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+#dialog > div > * {
+  font-size: 1.5rem;
+  /* display: flex; */
+  /* align-items: center; */
+  /* margin-bottom: 3rem; */
+  /* text-align: c; */
+  /* max-width: 300px; */
+  /* padding: 0 25rem; */
+}
+
+#dialog > div > p {
+  align-self: end;
+}
+
+#dialog > div > h3 {
+  align-self: center;
+}
+
+#dialog > div > div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#dialog > div > div > * {
+  padding: 1rem 3rem;
+  /* font-size: 1.5rem; */
+  border-radius: 10%;
+  /* max-width: 100px; */
+}
+
+#xBtn {
+  color: rgb(185, 9, 9);
+  font-weight: 900;
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  align-self: end;
+}
+
+#yesBtn {
+  background: radial-gradient(
+    rgb(13, 116, 13),
+    rgb(26, 92, 26),
+    rgb(29, 98, 29)
+  );
+
+  color: rgb(224, 224, 224);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+#noBtn {
+  background: radial-gradient(
+    rgb(155, 14, 14),
+    rgb(182, 61, 24),
+    rgb(194, 29, 29)
+  );
+  color: rgb(224, 224, 224);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.yesBtn:hover,
+.noBtn:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}

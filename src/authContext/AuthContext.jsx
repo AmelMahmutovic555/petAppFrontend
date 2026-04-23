@@ -41,11 +41,7 @@ export default function AuthProvider({ children }) {
 
   async function handleLogout() {
     try {
-      const res = await axios.post(
-        `${apiUrl}/user/logout`,
-        {},
-        { withCredentials: true },
-      );
+      await axios.post(`${apiUrl}/user/logout`, {}, { withCredentials: true });
     } catch (error) {
       console.error(error);
     } finally {

@@ -13,7 +13,7 @@
   align-items: center;
   padding: 3rem;
   gap: 3rem;
-  min-height: 50vh;
+  /* min-height: 100vh; */
   background: radial-gradient(
     rgb(222, 224, 225),
     rgb(192, 192, 192),

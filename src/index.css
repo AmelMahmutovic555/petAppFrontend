@@ -7,6 +7,7 @@
   font-family: "Lora", serif;
   /* font-family: sans-serif; */
   font-style: italic;
+  /* min-height: 100vh; */
 }
 
 html,
@@ -14,6 +15,7 @@ body,
 #root {
   width: 100%;
   max-width: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   /* overflow-x: hidden; */

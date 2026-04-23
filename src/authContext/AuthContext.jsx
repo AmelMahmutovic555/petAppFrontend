@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export const AuthContext = createContext();
 
@@ -12,6 +12,7 @@ export default function AuthProvider({ children }) {
   const [successBabysit, setSuccessBabysit] = useState("");
   const [assignedPet, setAssignedPet] = useState({});
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getInfo() {
@@ -20,13 +21,13 @@ export default function AuthProvider({ children }) {
           withCredentials: true,
         });
 
-        // console.log(res.data);
+        console.log(res.data);
 
-        if (res.data) {
-          setUser(res.data);
-        } else {
-          setUser(null);
-        }
+        // if (res.data) {
+        setUser(res.data);
+        // } else {
+        // setUser(null);
+        // }
       } catch (error) {
         console.error(error);
         setUser(null);
@@ -36,7 +37,27 @@ export default function AuthProvider({ children }) {
     }
 
     getInfo();
-  }, [location.pathname, apiUrl]);
+  }, []);
+
+  async function handleLogout() {
+    try {
+      const res = await axios.post(
+        `${apiUrl}/user/logout`,
+        {},
+        { withCredentials: true },
+      );
+
+      // console.log(res.data);
+
+      if (res.data) {
+        console.log(res.data);
+        setUser(null);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <AuthContext.Provider
@@ -48,6 +69,7 @@ export default function AuthProvider({ children }) {
         assignedPet,
         setAssignedPet,
         apiUrl,
+        handleLogout,
       }}
     >
       {children}

@@ -12,29 +12,12 @@ export default function Navbar() {
   // const [sidebar, setSidebar] = useState(false);
   // const [loading, setLoading] = useState(true);
 
-  const { user, setUser, apiUrl } = useContext(AuthContext);
+  const { user, setUser, apiUrl, handleLogout } = useContext(AuthContext);
 
   useEffect(() => {
     localStorage.setItem("currentPage", location.pathname);
-    // console.log(user);
+    console.log(user);
   }, [location.pathname]);
-
-  async function handleLogout() {
-    try {
-      const res = await axios.post(
-        `${apiUrl}/user/logout`,
-        {},
-        { withCredentials: true },
-      );
-
-      if (res.data) {
-        setUser(null);
-        navigate("/");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   // function handleSidebar() {
   //   setSidebar((prevState) => !prevState);

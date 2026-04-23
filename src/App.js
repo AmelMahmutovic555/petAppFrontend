@@ -8,6 +8,7 @@ import Pets from "./components/Pets.jsx";
 import CurrentPet from "./components/CurrentPet.jsx";
 // import ProtectedRoute from "./protectedRoute/ProtectedRoute.jsx";
 // import Home from "./components/Home.jsx"
+import "./index.css";
 
 function AppLayout() {
   return (

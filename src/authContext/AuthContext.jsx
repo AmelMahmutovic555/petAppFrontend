@@ -46,16 +46,11 @@ export default function AuthProvider({ children }) {
         {},
         { withCredentials: true },
       );
-
-      // console.log(res.data);
-
-      if (res.data) {
-        // console.log(res.data);
-        setUser(null);
-        navigate("/");
-      }
     } catch (error) {
       console.error(error);
+    } finally {
+      setUser(null);
+      navigate("/");
     }
   }
 

@@ -1,23 +1,23 @@
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useLocation } from "react-router";
 import "./style/Navbar.css";
 import { useContext, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { AuthContext } from "../authContext/AuthContext";
 
 export default function Navbar() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
 
   // const [user, setUser] = useState(null);
   // const [sidebar, setSidebar] = useState(false);
   // const [loading, setLoading] = useState(true);
 
-  const { user, setUser, apiUrl, handleLogout } = useContext(AuthContext);
+  const { user, handleLogout } = useContext(AuthContext);
 
   useEffect(() => {
     localStorage.setItem("currentPage", location.pathname);
     console.log(user);
-  }, [location.pathname]);
+  }, [location.pathname, user]);
 
   // function handleSidebar() {
   //   setSidebar((prevState) => !prevState);

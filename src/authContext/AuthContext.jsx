@@ -37,7 +37,7 @@ export default function AuthProvider({ children }) {
     }
 
     getInfo();
-  }, []);
+  }, [location.pathname, apiUrl]);
 
   async function handleLogout() {
     try {

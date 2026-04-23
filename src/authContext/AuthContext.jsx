@@ -36,7 +36,7 @@ export default function AuthProvider({ children }) {
       }
     }
 
-    getInfo();
+    if (apiUrl) getInfo();
   }, [location.pathname, apiUrl]);
 
   async function handleLogout() {
@@ -50,7 +50,7 @@ export default function AuthProvider({ children }) {
       // console.log(res.data);
 
       if (res.data) {
-        console.log(res.data);
+        // console.log(res.data);
         setUser(null);
         navigate("/");
       }

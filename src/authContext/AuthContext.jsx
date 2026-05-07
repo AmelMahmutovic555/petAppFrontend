@@ -21,7 +21,7 @@ export default function AuthProvider({ children }) {
           withCredentials: true,
         });
 
-        console.log(res.data);
+        // console.log(res.data);
 
         // if (res.data) {
         setUser(res.data);
@@ -29,7 +29,7 @@ export default function AuthProvider({ children }) {
         // setUser(null);
         // }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
         setUser(null);
       } finally {
         // setLoading(false);

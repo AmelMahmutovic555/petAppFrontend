@@ -27,12 +27,14 @@
 
 .btnAuth {
   border: 1px solid white;
-  border-radius: 10%;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .btnAuthLogout {
-  border-radius: 10%;
+  border-radius: 10px;
+  border: 1px solid white;
+
   background-color: transparent;
   padding: 0 1rem;
   cursor: pointer;

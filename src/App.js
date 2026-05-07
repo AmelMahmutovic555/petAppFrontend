@@ -10,14 +10,14 @@ import CurrentPet from "./components/CurrentPet.jsx";
 // import Home from "./components/Home.jsx"
 import "./index.css";
 
-function AppLayout() {
-  return (
-    <>
-      <Navbar />
-      <Outlet />
-    </>
-  );
-}
+// function AppLayout() {
+//   return (
+//     <>
+//       <Navbar />
+//       <Outlet />
+//     </>
+//   );
+// }
 
 export default function App() {
   return (

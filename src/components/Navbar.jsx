@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { useLocation } from "react-router";
 import "./style/Navbar.css";
 import { useContext, useEffect } from "react";
 // import axios from "axios";

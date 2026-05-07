@@ -21,7 +21,7 @@
 
 #currPetChild {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .currPetParent > div {
@@ -47,6 +47,8 @@
 .petInfo {
   margin: auto;
   padding-inline: 5rem;
+  padding-block: 3rem;
+  /* margin-block: 3rem; */
 }
 
 .petInfo > * {
@@ -68,7 +70,7 @@
   /* z-index: -100; */
   max-width: 100%;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   max-height: 100%;
   min-height: 100%;
 }
@@ -184,7 +186,7 @@
   transform: translateY(-3px);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 500px) {
   .currPetParent {
     width: 100%;
   }
@@ -200,7 +202,8 @@
   }
 
   .petInfo {
-    padding: 0;
+    padding-block: 3rem;
+    /* padding: 1rem 0; */
     /* width: 100%; */
   }
 

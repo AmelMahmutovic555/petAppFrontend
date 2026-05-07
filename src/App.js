@@ -1,6 +1,6 @@
-import { Routes, Route, Outlet } from "react-router";
+import { Routes, Route } from "react-router";
 // import { Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar.jsx";
+// import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
 import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";

@@ -32,18 +32,18 @@ export default function Navbar() {
       <header className="navbarHeader">
         <nav className="animalNavbar">
           <div className="firstChildNavbar">
-            <Link to={"/"}>
+            <a href={"/"}>
               <p>PetCare Match</p>
-            </Link>
+            </a>
           </div>
 
           <ul>
-            <Link to={"/"}>
+            <a href={"/"}>
               <li>Home</li>
-            </Link>
-            <Link to={"/pets"}>
+            </a>
+            <a href={"/pets"}>
               <li>Pets</li>
-            </Link>
+            </a>
 
             {user ? (
               <button className="btnAuthLogout" onClick={handleLogout}>
@@ -51,12 +51,12 @@ export default function Navbar() {
               </button>
             ) : (
               <>
-                <Link to={"/login"} className="btnAuth">
+                <a href={"/login"} className="btnAuth">
                   <li>Login</li>
-                </Link>
-                <Link to={"/signup"} className="btnAuth">
+                </a>
+                <a href={"/signup"} className="btnAuth">
                   <li>Signup</li>
-                </Link>
+                </a>
               </>
             )}
           </ul>

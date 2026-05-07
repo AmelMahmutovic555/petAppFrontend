@@ -1,9 +1,14 @@
 .animalNavbar {
   display: flex;
   justify-content: space-around;
-  padding: 1rem;
+  padding-block: 1rem;
+  /* color: white; */
   /* background: linear-gradient(135deg, #f5efe6 0%, #efe7da 100%); */
   /* background: radial-gradient(rgb(255, 249, 249), rgb(227, 169, 169), rgb(11, 11, 11)); */
+}
+
+.animalNavbar * {
+  color: white;
 }
 
 .animalNavbar > ul {
@@ -21,7 +26,7 @@
 }
 
 .btnAuth {
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 10%;
   cursor: pointer;
 }
@@ -47,4 +52,35 @@
   font-size: 1.5rem;
   text-decoration: none;
   color: black;
+}
+
+/* SIDEBAR */
+
+/* .navbarHeader {
+  position: fixed;
+  z-index: 99999;
+} */
+
+#sidebar {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 100dvh;
+  /* align-items: center; */
+}
+
+#sidebar > ul {
+  list-style-type: none;
+}
+
+#sidebar > ul > * > li {
+  color: white;
+}
+
+@media (max-width: 570px) {
+  .animalNavbar > ul {
+    flex-direction: column;
+  }
 }

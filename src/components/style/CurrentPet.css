@@ -1,14 +1,11 @@
 .currPetParent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+
+  /* justify-content: center; */
+  /* align-items: center; */
   padding-inline: 1rem;
-  background: radial-gradient(
-    rgb(222, 224, 225),
-    rgb(192, 192, 192),
-    rgb(180, 180, 180),
-    rgb(161, 165, 168)
-  );
+  background: linear-gradient(#60452b, #f5f5dc);
+
   /* background: radial-gradient(
     rgb(170, 190, 197),
     rgb(192, 199, 202),
@@ -22,14 +19,20 @@
   /* margin-top: 25vh; */
 }
 
+#currPetChild {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
 .currPetParent > div {
-  background-color: white;
-  box-shadow: 20px 20px 100px rgb(120, 120, 120) inset;
+  background-color: #fdfbf9;
+
+  /* background-color: white; */
+  /* box-shadow: 20px 20px 100px #60452b inset; */
   border: 5px solid black;
-  border-radius: 6%;
+  border-radius: 10px;
   /* z-index: 10000; */
   /* max-width: 1000px; */
-
   min-height: 60vh;
   /* max-width: 50vw; */
 
@@ -41,43 +44,42 @@
   /* flex-wrap: wrap; */
 }
 
-.currPetParent > div > * {
-  /* flex: 1 1 0; */
-  /* margin: 3rem; */
-}
-
 .petInfo {
   margin: auto;
   padding-inline: 5rem;
 }
 
 .petInfo > * {
+  font-family: "Josefin Sans", sans-serif;
   margin-bottom: 1rem;
   font-size: 2rem;
   font-weight: 900;
 }
 
 .petImg {
-  border-top-right-radius: 10%;
+  /* border-radius: 10px; */
+  /* border-top-right-radius: 10%;
   border-bottom-right-radius: 10%;
   border-top-left-radius: 35px;
-  border-bottom-left-radius: 35px;
+  border-bottom-left-radius: 35px; */
   /* border-left-radius: 6%; */
   /* border: 1px solid black; */
   border-right: none;
   /* z-index: -100; */
-  max-width: 500px;
-  /* height: 100%; */
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  min-height: 100%;
 }
 
 .babysitBtn {
   font-size: 1.1rem;
 }
 
-@media (max-width: 870px) {
+/* @media (max-width: 870px) {
   .currPetParent > div {
     flex-direction: column;
-    /* width: 100%; */
   }
   .petImg {
     border-radius: 8%;
@@ -90,7 +92,7 @@
     font-size: 1.3rem;
     font-weight: 900;
   }
-}
+} */
 
 #dialog {
   margin: auto;
@@ -123,6 +125,7 @@
 
 #dialog > div > h3 {
   align-self: center;
+  text-align: center;
 }
 
 #dialog > div > div {
@@ -179,4 +182,36 @@
 .noBtn:hover {
   cursor: pointer;
   transform: translateY(-3px);
+}
+
+@media (max-width: 1000px) {
+  .currPetParent {
+    width: 100%;
+  }
+
+  .currPetParent > div {
+    flex-direction: column;
+  }
+  #currPetChild {
+    margin-inline: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .petInfo {
+    padding: 0;
+    /* width: 100%; */
+  }
+
+  .babysitBtn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .petImg {
+    max-width: 100%;
+    width: 100%;
+    height: 20rem;
+  }
 }

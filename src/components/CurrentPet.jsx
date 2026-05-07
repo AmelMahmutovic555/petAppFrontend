@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-
+import Navbar from "./Navbar.jsx";
 import "./style/CurrentPet.css";
 import { AuthContext } from "../authContext/AuthContext";
 export default function CurrentPet() {
   const [pet, setPet] = useState({});
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const { name } = useParams();
 
@@ -40,7 +40,7 @@ export default function CurrentPet() {
         console.error(error);
         setPet(null);
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     }
 
@@ -96,35 +96,46 @@ export default function CurrentPet() {
   return (
     <>
       <section className="currPetParent">
-        <div>
-          <img src={pet?.image} alt="pet" className="petImg" />
-          <div className="petInfo">
-            <p>{pet?.name}</p>
-            <p>Age: {pet?.age}</p>
-            <p>Contact: {pet?.phone}</p>
-            {/* <Link to={`/`} className="babysitLink"> */}
-            <button className="babysitBtn" id="babysitBtn" onClick={openDialog}>
-              Babysit
-            </button>
-            {/* </Link> */}
-          </div>
-        </div>
-        <dialog id="dialog" ref={dialogRef}>
-          <div>
-            <button id="xBtn" onClick={closeDialog}>
-              X
-            </button>
-            <h3>Are you sure you want to apply to babysit {pet?.name}?</h3>
-            <div>
-              <button id="yesBtn" onClick={handleBabysit}>
-                Yes
-              </button>
-              <button id="noBtn" onClick={closeDialog}>
-                No
-              </button>
+        <Navbar />
+        {loading ? (
+          <p className="loading">Loading...</p>
+        ) : (
+          <>
+            <div id="currPetChild">
+              <img src={pet?.image} alt="pet" className="petImg" />
+              <div className="petInfo">
+                <p>{pet?.name}</p>
+                <p>Age: {pet?.age}</p>
+                <p>Contact: {pet?.phone}</p>
+                {/* <Link to={`/`} className="babysitLink"> */}
+                <button
+                  className="babysitBtn"
+                  id="babysitBtn"
+                  onClick={openDialog}
+                >
+                  Babysit
+                </button>
+                {/* </Link> */}
+              </div>
             </div>
-          </div>
-        </dialog>
+            <dialog id="dialog" ref={dialogRef}>
+              <div>
+                <button id="xBtn" onClick={closeDialog}>
+                  X
+                </button>
+                <h3>Are you sure you want to apply to babysit {pet?.name}?</h3>
+                <div>
+                  <button id="yesBtn" onClick={handleBabysit}>
+                    Yes
+                  </button>
+                  <button id="noBtn" onClick={closeDialog}>
+                    No
+                  </button>
+                </div>
+              </div>
+            </dialog>
+          </>
+        )}
       </section>
     </>
   );

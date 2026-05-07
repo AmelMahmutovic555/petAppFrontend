@@ -6,12 +6,10 @@
     rgb(172, 180, 182),
     rgb(209, 210, 212)
   ); */
-  background: radial-gradient(
-    rgb(222, 224, 225),
-    rgb(192, 192, 192),
-    rgb(180, 180, 180),
-    rgb(161, 165, 168)
-  );
+
+  background: #93673d;
+  color: white;
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
   padding: 1rem;
   text-align: center;
 }

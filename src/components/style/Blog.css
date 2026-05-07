@@ -22,6 +22,10 @@
   align-items: center;
   padding: 3rem;
   flex-wrap: wrap;
+  background: linear-gradient(#60452b, #f5f5dc);
+
+  /* background-color: #eaeaf1; */
+  /* background-color: rgb(#f5f5dc, #bb8b5a, #fffef2); */
   /* background: linear-gradient(135deg, #f5efe6 0%, #efe7da 100%); */
   /* background: radial-gradient(rgb(219, 219, 219), rgb(255, 255, 255), rgb(173, 170, 170)); */
 
@@ -32,7 +36,7 @@
   transform: translateX(-300%);
   max-width: 100%;
   border-radius: 10%;
-  box-shadow: 55px 35px 50px gray;
+  box-shadow: 53px 3px 50px #4a3119;
   animation-name: appear1;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -105,12 +109,8 @@
   font-weight: 900;
   font-size: 1rem;
   cursor: pointer;
-  background: radial-gradient(
-    rgb(219, 219, 219),
-    rgb(255, 255, 255),
-    rgb(173, 170, 170)
-  );
-  border-radius: 10%;
+
+  border-radius: 10px;
   color: black;
   /* z-index: 9999; */
 }
@@ -118,7 +118,7 @@
 .petsBtn > *:hover {
   transform: translateY(-5%);
   transition: transform 1s ease;
-  background: gray;
+  background: #60452b;
   color: rgb(255, 255, 255);
   border-color: white;
 }

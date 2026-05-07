@@ -23,7 +23,7 @@ export default function App() {
   return (
     <>
       {/* <BrowserRouter> */}
-      <AppLayout />
+      {/* <AppLayout /> */}
       <Routes>
         <Route path="/" element={<Home />} />
 

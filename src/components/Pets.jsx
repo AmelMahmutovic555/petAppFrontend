@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../authContext/AuthContext.jsx";
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
 export default function Pets() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -106,6 +108,7 @@ export default function Pets() {
   return (
     <>
       <section className="petsParent">
+        <Navbar />
         {successBabysit.length > 0 ? (
           <p className="successBabysit">{successBabysit}</p>
         ) : (
@@ -126,7 +129,7 @@ export default function Pets() {
 
         <div className="petsSecondChild">
           {loading ? (
-            <p>Loading...</p>
+            <p className="loading">Loading...</p>
           ) : (
             pets.map((p) => {
               if (p.userId !== null) {
@@ -163,7 +166,7 @@ export default function Pets() {
         </div>
       </section>
 
-      {/* <Footer/> */}
+      <Footer />
     </>
   );
 }

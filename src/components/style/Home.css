@@ -8,18 +8,24 @@
 }
 
 .homeParent {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 3rem;
-  gap: 3rem;
+  /* display: flex; */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  /* padding: 15rem; */
+  /* padding-block: 15rem; */
+  /* gap: 3rem; */
   /* min-height: 100vh; */
-  background: radial-gradient(
-    rgb(222, 224, 225),
-    rgb(192, 192, 192),
-    rgb(180, 180, 180),
-    rgb(161, 165, 168)
-  );
+  /* background: url("/public/puppy.jpg"); */
+  background-color: rgba(gray, rgb(151, 152, 151), rgb(144, 144, 144), 0.2);
+
+  background: url("/public/dogTan.jpg"), rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  /* min-height: 100vh; */
   /* background: radial-gradient(
     rgb(170, 190, 197),
     rgb(192, 199, 202),
@@ -31,14 +37,25 @@
   /* transform: skewY(45deg); */
 }
 
-.homeSecondChild {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.homeParent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
-  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 
-  /* grid-template-columns: 1fr 1fr; */
-  gap: 1rem;
+  z-index: 1;
+}
+.homeParent > * {
+  position: relative;
+
+  z-index: 2;
+}
+
+#homeChild {
+  padding-block: 15rem;
 }
 
 .homeFirstChild > * {
@@ -46,22 +63,28 @@
   animation-name: appear;
   animation-duration: 2s;
   animation-fill-mode: forwards;
-  /* font-family: sans-serif; */
+  margin: 3rem;
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
   text-align: center;
-  font-style: italic;
+  font-size: 1.1rem;
+  /* font-style: italic; */
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 500;
   background: radial-gradient(
-    circle,
-    rgb(36, 22, 22) 0%,
-    rgb(109, 105, 95) 10%,
-    rgb(51, 41, 41) 90%
+    rgb(246, 246, 246),
+    rgb(236, 236, 236),
+    rgb(239, 233, 233)
   );
+
+  margin: 0;
+  padding: 0;
+  /* padding-block: 15rem; */
+  /* margin-top: 50vh; */
   /* background: linear-gradient(-135deg, #4f46e5, #4f00d7, #1b3d43); */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 3px 13px 30px black;
+  text-shadow: 3px 13px 10px rgb(82, 79, 79);
 }
 
 .WelcomePetCareHeading {

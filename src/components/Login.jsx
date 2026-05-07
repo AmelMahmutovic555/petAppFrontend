@@ -3,6 +3,7 @@ import "./style/Signup.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../authContext/AuthContext";
+import Navbar from "./Navbar";
 export default function Login() {
   const [formInfo, setFormInfo] = useState({
     email: "",
@@ -62,38 +63,46 @@ export default function Login() {
   return (
     <>
       <section className="signupContainer">
-        <div className="signupContainerChild">
-          <form className="signupForm" onSubmit={handleSubmit}>
-            <label>Enter your Email:</label>
-            <input
-              type="email"
-              name="email"
-              value={formInfo.email}
-              onChange={handleChange}
-              required
-            />
+        <Navbar />
+        <article className="signupArticle">
+          <div className="signupContainerChild">
+            <form className="signupForm" onSubmit={handleSubmit}>
+              <label>Enter your Email:</label>
+              <input
+                type="email"
+                name="email"
+                value={formInfo.email}
+                onChange={handleChange}
+                required
+              />
 
-            <label>Enter your Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={formInfo.password}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit">Submit</button>
-            <p>
-              Don't have an account? <Link to={"/signup"}>Sign Up Here</Link>
-            </p>
-            <p>-----OR-----</p>
-            {/* <div> */}
-            <button onClick={handleGoogle} className="googleBtn">
-              <img src="/googleIcon.jpg" alt="google" width={50} height={50} />
-              Sign In with Google
-            </button>
-            {/* </div> */}
-          </form>
-        </div>
+              <label>Enter your Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={formInfo.password}
+                onChange={handleChange}
+                required
+              />
+              <button type="submit">Submit</button>
+              <p>
+                Don't have an account? <Link to={"/signup"}>Sign Up Here</Link>
+              </p>
+              <p>-----OR-----</p>
+              {/* <div> */}
+              <button onClick={handleGoogle} className="googleBtn">
+                <img
+                  src="/googleIcon.jpg"
+                  alt="google"
+                  width={50}
+                  height={50}
+                />
+                Sign In with Google
+              </button>
+              {/* </div> */}
+            </form>
+          </div>
+        </article>
       </section>
     </>
   );

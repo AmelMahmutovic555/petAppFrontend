@@ -16,7 +16,7 @@ export default function Navbar() {
 
   useEffect(() => {
     localStorage.setItem("currentPage", location.pathname);
-    console.log(user);
+    // console.log(user);
   }, [location.pathname, user]);
 
   // function handleSidebar() {
@@ -61,6 +61,31 @@ export default function Navbar() {
             )}
           </ul>
         </nav>
+        {/* <div id="sidebar">
+          <ul>
+            <Link to={"/"}>
+              <li>Home</li>
+            </Link>
+            <Link to={"/pets"}>
+              <li>Pets</li>
+            </Link>
+
+            {user ? (
+              <button className="btnAuthLogout" onClick={handleLogout}>
+                <li>Logout</li>
+              </button>
+            ) : (
+              <>
+                <Link to={"/login"} className="btnAuth">
+                  <li>Login</li>
+                </Link>
+                <Link to={"/signup"} className="btnAuth">
+                  <li>Signup</li>
+                </Link>
+              </>
+            )}
+          </ul>
+        </div> */}
       </header>
     </>
   );

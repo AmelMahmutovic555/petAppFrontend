@@ -1,13 +1,14 @@
 .signupContainer {
   background: linear-gradient(#60452b, #f5f5dc);
   min-height: 100vh;
+  padding-bottom: 3rem;
 }
 
 .signupArticle {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
 }
 
 .signupContainer > .signupArticle > div {

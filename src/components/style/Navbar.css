@@ -34,9 +34,8 @@
 .btnAuthLogout {
   border-radius: 10px;
   border: 1px solid white;
-
   background-color: transparent;
-  padding: 0 1rem;
+  padding: 1rem 1rem;
   cursor: pointer;
 }
 

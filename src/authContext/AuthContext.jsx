@@ -3,8 +3,9 @@ import { createContext, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 export const AuthContext = createContext();
-
 export default function AuthProvider({ children }) {
+  let existingUser = null;
+
   const [apiUrl] = useState(process.env.REACT_APP_API_URL);
 
   const [user, setUser] = useState(null);
@@ -28,7 +29,7 @@ export default function AuthProvider({ children }) {
   }, [apiUrl]);
 
   useEffect(() => {
-    const existingUser =
+    existingUser =
       localStorage.getItem("user") !== null
         ? localStorage.getItem("user")
         : null;

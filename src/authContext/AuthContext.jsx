@@ -8,6 +8,7 @@ export default function AuthProvider({ children }) {
   const [apiUrl] = useState(process.env.REACT_APP_API_URL);
 
   const [user, setUser] = useState(null);
+  // const [existingUser, setExistingUser] = useState(null);
   // const [loading, setLoading] = useState(true);
   const [successBabysit, setSuccessBabysit] = useState("");
   const [assignedPet, setAssignedPet] = useState({});
@@ -27,11 +28,14 @@ export default function AuthProvider({ children }) {
   }, [apiUrl]);
 
   useEffect(() => {
-    const existingUser = localStorage.getItem("user");
+    const existingUser =
+      localStorage.getItem("user") !== null
+        ? localStorage.getItem("user")
+        : null;
     if (existingUser !== null) {
       getInfo();
     }
-  }, [getInfo, localStorage.getItem("user")]);
+  }, [getInfo, existingUser]);
 
   async function handleLogout() {
     try {

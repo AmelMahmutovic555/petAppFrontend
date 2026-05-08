@@ -25,13 +25,13 @@ export default function AuthProvider({ children }) {
     } finally {
       // setLoading(false);
     }
-  }, [apiUrl, location.pathname]);
+  }, [apiUrl]);
 
   useEffect(() => {
     if (localStorage.getItem("user") !== null) {
       getInfo();
     }
-  }, [getInfo]);
+  }, [getInfo, location.pathname]);
 
   async function handleLogout() {
     try {

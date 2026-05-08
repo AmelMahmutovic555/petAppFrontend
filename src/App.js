@@ -9,6 +9,8 @@ import CurrentPet from "./components/CurrentPet.jsx";
 // import ProtectedRoute from "./protectedRoute/ProtectedRoute.jsx";
 // import Home from "./components/Home.jsx"
 import "./index.css";
+import { useContext } from "react";
+import { AuthContext } from "./authContext/AuthContext.jsx";
 
 // function AppLayout() {
 //   return (
@@ -20,6 +22,11 @@ import "./index.css";
 // }
 
 export default function App() {
+  const { loading } = useContext(AuthContext);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
   return (
     <>
       {/* <BrowserRouter> */}

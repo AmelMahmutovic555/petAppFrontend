@@ -1,5 +1,11 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useNavigate } from "react-router";
 
 export const AuthContext = createContext();
@@ -8,45 +14,42 @@ export default function AuthProvider({ children }) {
   const [apiUrl] = useState(process.env.REACT_APP_API_URL);
 
   const [user, setUser] = useState(null);
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [successBabysit, setSuccessBabysit] = useState("");
   const [assignedPet, setAssignedPet] = useState({});
-  // const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function getInfo() {
-      try {
-        const res = await axios.get(`${apiUrl}/user/me`, {
-          withCredentials: true,
-        });
-
-        // console.log(res.data);
-
-        // if (res.data) {
-        setUser(res.data);
-        // } else {
-        // setUser(null);
-        // }
-      } catch (error) {
-        // console.error(error);
-        setUser(null);
-      } finally {
-        // setLoading(false);
-      }
+  const getInfo = useCallback(async () => {
+    try {
+      const res = await axios.get(`${apiUrl}/user/me`, {
+        withCredentials: true,
+      });
+      setUser(res.data);
+    } catch (error) {
+      setUser(null);
+    } finally {
+      setLoading(false);
     }
+  }, []);
 
-    if (apiUrl) getInfo();
-  }, [apiUrl]);
+  useEffect(() => {
+    const existingUser = localStorage.getItem("user");
+    if (existingUser !== null) {
+      getInfo();
+    }
+  }, [getInfo, localStorage.getItem("user")]);
 
   async function handleLogout() {
     try {
+      setLoading(true);
       await axios.post(`${apiUrl}/user/logout`, {}, { withCredentials: true });
+      localStorage.removeItem("user");
     } catch (error) {
       console.error(error);
     } finally {
       setUser(null);
       navigate("/");
+      setLoading(false);
     }
   }
 

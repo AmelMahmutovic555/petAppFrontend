@@ -30,7 +30,7 @@ export default function AuthProvider({ children }) {
     if (localStorage.getItem("user") !== null) {
       getInfo();
     }
-  }, [getInfo, localStorage.getItem("user") !== null]);
+  }, [getInfo]);
 
   async function handleLogout() {
     try {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
@@ -12,6 +12,7 @@ export default function AuthProvider({ children }) {
   const [successBabysit, setSuccessBabysit] = useState("");
   const [assignedPet, setAssignedPet] = useState({});
   const navigate = useNavigate();
+  const location = useLocation();
 
   const getInfo = useCallback(async () => {
     try {
@@ -24,7 +25,7 @@ export default function AuthProvider({ children }) {
     } finally {
       // setLoading(false);
     }
-  }, [apiUrl]);
+  }, [apiUrl, location.pathname]);
 
   useEffect(() => {
     if (localStorage.getItem("user") !== null) {

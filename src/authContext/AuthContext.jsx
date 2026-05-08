@@ -31,7 +31,7 @@ export default function AuthProvider({ children }) {
     if (existingUser !== null) {
       getInfo();
     }
-  }, [localStorage.getItem("user")]);
+  }, [getInfo]);
 
   async function handleLogout() {
     try {

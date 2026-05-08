@@ -12,7 +12,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const { apiUrl, setUser } = useContext(AuthContext);
+  const { apiUrl } = useContext(AuthContext);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -44,7 +44,7 @@ export default function Login() {
               ? localStorage.getItem("currentLocation")
               : null;
 
-          // console.log(typeof current);
+          console.log(typeof current);
           // localStorage.setItem("userInfo", res.data?.token)
           navigate(localStorage.getItem("currentLocation"), { replace: true });
         }

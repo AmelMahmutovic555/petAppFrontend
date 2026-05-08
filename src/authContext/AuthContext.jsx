@@ -4,8 +4,6 @@ import { useNavigate } from "react-router";
 
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
-  const existingUser = useRef(null);
-
   const [apiUrl] = useState(process.env.REACT_APP_API_URL);
 
   const [user, setUser] = useState(null);
@@ -29,14 +27,10 @@ export default function AuthProvider({ children }) {
   }, [apiUrl]);
 
   useEffect(() => {
-    existingUser =
-      localStorage.getItem("user") !== null
-        ? localStorage.getItem("user")
-        : null;
-    if (existingUser.current !== null) {
+    if (localStorage.getItem("user") !== null) {
       getInfo();
     }
-  }, [getInfo, existingUser.current]);
+  }, [getInfo, localStorage.getItem("user")]);
 
   async function handleLogout() {
     try {

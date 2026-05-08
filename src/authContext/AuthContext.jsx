@@ -33,7 +33,7 @@ export default function AuthProvider({ children }) {
       localStorage.getItem("user") !== null
         ? localStorage.getItem("user")
         : null;
-    if (existingUser !== null) {
+    if (existingUser.current !== null) {
       getInfo();
     }
   }, [getInfo, existingUser.current]);

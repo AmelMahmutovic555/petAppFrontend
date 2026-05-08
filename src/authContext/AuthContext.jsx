@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useCallback, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 export const AuthContext = createContext();
@@ -30,7 +30,7 @@ export default function AuthProvider({ children }) {
     if (localStorage.getItem("user") !== null) {
       getInfo();
     }
-  }, [getInfo, localStorage.getItem("user")]);
+  }, [getInfo, localStorage.getItem("user") !== null]);
 
   async function handleLogout() {
     try {

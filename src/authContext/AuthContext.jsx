@@ -1,10 +1,10 @@
 import axios from "axios";
-import { createContext, useCallback, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
-  let existingUser = null;
+  const existingUser = useRef(null);
 
   const [apiUrl] = useState(process.env.REACT_APP_API_URL);
 
@@ -36,7 +36,7 @@ export default function AuthProvider({ children }) {
     if (existingUser !== null) {
       getInfo();
     }
-  }, [getInfo, existingUser]);
+  }, [getInfo, existingUser.current]);
 
   async function handleLogout() {
     try {

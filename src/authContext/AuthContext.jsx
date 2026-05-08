@@ -35,7 +35,7 @@ export default function AuthProvider({ children }) {
 
   async function handleLogout() {
     try {
-      setLoading(true);
+      // setLoading(true);
       await axios.post(`${apiUrl}/user/logout`, {}, { withCredentials: true });
       localStorage.removeItem("user");
     } catch (error) {

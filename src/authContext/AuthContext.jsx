@@ -28,9 +28,9 @@ export default function AuthProvider({ children }) {
   }, [apiUrl]);
 
   useEffect(() => {
-    // if (localStorage.getItem("user") !== null) {
-    getInfo();
-    // }
+    if (localStorage.getItem("user") !== null) {
+      getInfo();
+    }
   }, [getInfo, location.pathname]);
 
   async function handleLogout() {

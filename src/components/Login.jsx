@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./style/Signup.css";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../authContext/AuthContext";
 import Navbar from "./Navbar";
 export default function Login() {
@@ -13,6 +13,12 @@ export default function Login() {
   const navigate = useNavigate();
 
   const { apiUrl } = useContext(AuthContext);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    localStorage.removeItem("user");
+  }, [location.pathname]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -59,8 +65,10 @@ export default function Login() {
   }
 
   function handleGoogle() {
+    localStorage.setItem("user", "User Exists");
     window.location.href = `${apiUrl}/user/google-login`;
   }
+
   return (
     <>
       <section className="signupContainer">

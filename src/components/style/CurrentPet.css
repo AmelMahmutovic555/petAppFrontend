@@ -23,19 +23,27 @@
 #currPetChild {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
+  align-items: center;
+  margin: 10vh auto;
 }
 
 .currPetParent > div {
+  animation: slideUp 1s linear;
+
   background-color: #fdfbf9;
 
   /* background-color: white; */
   /* box-shadow: 20px 20px 100px #60452b inset; */
-  border: 5px solid black;
+  /* border: 5px solid black; */
   border-radius: 10px;
   /* z-index: 10000; */
   /* max-width: 1000px; */
   min-height: 60vh;
-  /* max-width: 50vw; */
+  width: 50%;
+  max-width: 50%;
+
+  box-shadow: 0 0 100px #fdfbf9;
 
   /* padding-block: 5rem; */
   margin: 5rem;
@@ -45,10 +53,18 @@
   /* flex-wrap: wrap; */
 }
 
+.currPetParent > div:hover {
+  transform: scale(1.05) translateY(-10px);
+  transition: all 1s ease-in-out;
+}
+
 .petInfo {
   margin: auto;
   padding-inline: 5rem;
   padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   /* margin-block: 3rem; */
 }
 
@@ -56,7 +72,11 @@
   font-family: "Josefin Sans", sans-serif;
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-weight: 900;
+  /* font-weight: 900; */
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  /* font-weight: 900; */
+  text-align: start;
 }
 
 .petImg {
@@ -74,10 +94,31 @@
   /* height: 100%; */
   max-height: 100%;
   min-height: 100%;
+  border-radius: 10px;
 }
 
-.babysitBtn {
+.babysitBtn1 {
+  padding: 1rem;
+  background: none;
+  border-radius: 10px;
+  cursor: pointer;
   font-size: 1.1rem;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.babysitBtn1:hover {
+  background-color: #60452b;
+
+  font-size: 1.1rem;
+  /* border-color: rgb(190, 190, 190); */
+  color: white;
+  font-weight: 900;
+  transform: translateY(-15%);
+  transition:
+    background-color 1s ease,
+    transform 1s ease;
 }
 
 /* @media (max-width: 870px) {
@@ -187,7 +228,7 @@
   transform: translateY(-3px);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .currPetParent {
     width: 100%;
   }
@@ -196,7 +237,7 @@
     flex-direction: column;
   }
   #currPetChild {
-    margin: 0;
+    margin: 10vh auto;
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
@@ -208,7 +249,7 @@
     /* width: 100%; */
   }
 
-  .babysitBtn {
+  .babysitBtn1 {
     width: 100%;
     max-width: 100%;
   }
@@ -218,4 +259,9 @@
     width: 100%;
     height: 20rem;
   }
+}
+
+.petName {
+  font-size: 2rem;
+  font-weight: 900;
 }

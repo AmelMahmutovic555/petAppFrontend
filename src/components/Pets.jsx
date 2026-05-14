@@ -137,14 +137,17 @@ export default function Pets() {
                   <div key={p.id} className="foundBabysitterParent">
                     <p className="foundBabysitter">Found a Babysitter!</p>
                     <img src={p.image} alt="pets" width={300} height={200} />
-                    <p>{p.name}</p>
-                    <p>Age: {p.age}</p>
-                    <p>Contact Number: {p.phone}</p>
-                    <Link className="babysitLink">
-                      <button className="babysitBtn" disabled>
-                        Babysit
-                      </button>
-                    </Link>
+
+                    <div className="petsInformation">
+                      <p className="petName">{p.name}</p>
+                      <p>📅 Age: {p.age}</p>
+                      <p>📞 Contact Number: {p.phone}</p>
+                      <Link className="babysitLink">
+                        <button className="babysitBtn" disabled>
+                          {p.type === "cat" ? "🐱" : "🐾"} Babysit
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 );
               }
@@ -152,13 +155,18 @@ export default function Pets() {
               return (
                 <div key={p.id}>
                   <img src={p.image} alt="pets" width={300} height={200} />
-                  <p>{p.name}</p>
-                  <p>Age: {p.age}</p>
 
-                  <p>Contact Number: {p.phone}</p>
-                  <Link to={`/pets/${p.name}`} className="babysitLink">
-                    <button className="babysitBtn">Babysit</button>
-                  </Link>
+                  <div className="petsInformation">
+                    <p className="petName">{p.name}</p>
+                    <p>📅 Age: {p.age}</p>
+
+                    <p>☎︎ Contact Number: {p.phone}</p>
+                    <Link to={`/pets/${p.name}`} className="babysitLink">
+                      <button className="babysitBtn">
+                        {p.type === "cat" ? "🐱" : "🐾"} Babysit
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               );
             })

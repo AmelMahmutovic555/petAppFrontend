@@ -102,18 +102,18 @@ export default function CurrentPet() {
         ) : (
           <>
             <div id="currPetChild">
-              <img src={pet?.image} alt="pet" className="petImg" />
+              <img src={pet.image} alt="pet" className="petImg" />
               <div className="petInfo">
-                <p>{pet?.name}</p>
-                <p>Age: {pet?.age}</p>
-                <p>Contact: {pet?.phone}</p>
+                <p className="petName">{pet.name}</p>
+                <p>📅 Age: {pet.age}</p>
+                <p>📞 Contact: {pet.phone}</p>
                 {/* <Link to={`/`} className="babysitLink"> */}
                 <button
-                  className="babysitBtn"
+                  className="babysitBtn1"
                   id="babysitBtn"
                   onClick={openDialog}
                 >
-                  Babysit
+                  {pet.type === "cat" ? "🐱" : "🐾"} Babysit
                 </button>
                 {/* </Link> */}
               </div>

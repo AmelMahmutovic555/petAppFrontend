@@ -4,7 +4,7 @@ import "./style/Home.css";
 // import axios from "axios";
 import Footer from "./Footer.jsx";
 import { Link, useLocation } from "react-router";
-import Navbar from "./Navbar.jsx";
+// import Navbar from "./Navbar.jsx";
 
 export default function Home() {
   const location = useLocation();

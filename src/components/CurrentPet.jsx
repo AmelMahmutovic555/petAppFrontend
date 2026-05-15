@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import Navbar from "./Navbar.jsx";
+// import Navbar from "./Navbar.jsx";
 import "./style/CurrentPet.css";
 import { AuthContext } from "../authContext/AuthContext";
 export default function CurrentPet() {

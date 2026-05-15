@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../authContext/AuthContext.jsx";
-import Navbar from "./Navbar.jsx";
+// import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 export default function Pets() {
   const [pets, setPets] = useState([]);

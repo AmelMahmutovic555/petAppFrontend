@@ -3,7 +3,7 @@ import "./style/Signup.css";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../authContext/AuthContext";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 export default function Signup() {
   const [formInfo, setFormInfo] = useState({
     name: "",

@@ -108,7 +108,7 @@ export default function Pets() {
   return (
     <>
       <section className="petsParent">
-        <Navbar />
+        {/* <Navbar /> */}
         {successBabysit.length > 0 ? (
           <p className="successBabysit">{successBabysit}</p>
         ) : (

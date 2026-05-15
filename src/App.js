@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, Outlet } from "react-router";
 // import { Navigate } from "react-router-dom";
 // import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
@@ -11,15 +11,16 @@ import CurrentPet from "./components/CurrentPet.jsx";
 import "./index.css";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext.jsx";
+import Navbar from "./components/Navbar.jsx";
 
-// function AppLayout() {
-//   return (
-//     <>
-//       <Navbar />
-//       <Outlet />
-//     </>
-//   );
-// }
+function AppLayout() {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+}
 
 export default function App() {
   const { loading } = useContext(AuthContext);
@@ -30,7 +31,7 @@ export default function App() {
   return (
     <>
       {/* <BrowserRouter> */}
-      {/* <AppLayout /> */}
+      <AppLayout />
       <Routes>
         <Route path="/" element={<Home />} />
 

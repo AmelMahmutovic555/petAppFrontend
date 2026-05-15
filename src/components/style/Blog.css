@@ -23,7 +23,8 @@
   padding: 3rem;
   flex-wrap: wrap;
   background: linear-gradient(#60452b, #f5f5dc);
-
+  /* height: 100vh; */
+  /* min-height: 100vh; */
   /* background-color: #eaeaf1; */
   /* background-color: rgb(#f5f5dc, #bb8b5a, #fffef2); */
   /* background: linear-gradient(135deg, #f5efe6 0%, #efe7da 100%); */

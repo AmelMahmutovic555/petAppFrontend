@@ -1,31 +1,22 @@
 import { useLocation } from "react-router";
 import "./style/Navbar.css";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 // import axios from "axios";
 import { AuthContext } from "../authContext/AuthContext";
 
 export default function Navbar() {
-  // const navigate = useNavigate();
   const location = useLocation();
-
-  // const [user, setUser] = useState(null);
-  // const [sidebar, setSidebar] = useState(false);
-  // const [loading, setLoading] = useState(true);
-
   const { user, handleLogout } = useContext(AuthContext);
+  const [sidebar, setSidebar] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("currentPage", location.pathname);
     console.log(user);
   }, [location.pathname, user]);
 
-  // function handleSidebar() {
-  //   setSidebar((prevState) => !prevState);
-  // }
-
-  // if (loading) {
-  // return <p>Loading...</p>;
-  // }
+  function handleSidebar() {
+    setSidebar((prevState) => !prevState);
+  }
 
   return (
     <>
@@ -37,55 +28,63 @@ export default function Navbar() {
             </a>
           </div>
 
-          <ul>
-            <a href={"/"}>
-              <li>Home</li>
-            </a>
-            <a href={"/pets"}>
-              <li>Pets</li>
-            </a>
+          {window.innerWidth < 590 ? (
+            <button className="hamburger" onClick={handleSidebar}>
+              {sidebar ? "✕" : "☰"}
+            </button>
+          ) : (
+            <ul>
+              <a href={"/"}>
+                <li>Home</li>
+              </a>
+              <a href={"/pets"}>
+                <li>Pets</li>
+              </a>
 
-            {user ? (
-              <button className="btnAuthLogout" onClick={handleLogout}>
-                <li>Logout</li>
-              </button>
-            ) : (
-              <>
-                <a href={"/login"} className="btnAuth">
-                  <li>Login</li>
-                </a>
-                <a href={"/signup"} className="btnAuth">
-                  <li>Signup</li>
-                </a>
-              </>
-            )}
-          </ul>
+              {user ? (
+                <button className="btnAuthLogout" onClick={handleLogout}>
+                  <li>Logout</li>
+                </button>
+              ) : (
+                <>
+                  <a href={"/login"} className="btnAuth">
+                    <li>Login</li>
+                  </a>
+                  <a href={"/signup"} className="btnAuth">
+                    <li>Signup</li>
+                  </a>
+                </>
+              )}
+            </ul>
+          )}
         </nav>
-        {/* <div id="sidebar">
-          <ul>
-            <Link to={"/"}>
-              <li>Home</li>
-            </Link>
-            <Link to={"/pets"}>
-              <li>Pets</li>
-            </Link>
+        {sidebar && (
+          <div id="sidebar">
+            <ul>
+              <a href={"/"}>
+                <li>Home</li>
+              </a>
+              <a href={"/pets"}>
+                <li>Pets</li>
+              </a>
 
-            {user ? (
-              <button className="btnAuthLogout" onClick={handleLogout}>
-                <li>Logout</li>
-              </button>
-            ) : (
-              <>
-                <Link to={"/login"} className="btnAuth">
-                  <li>Login</li>
-                </Link>
-                <Link to={"/signup"} className="btnAuth">
-                  <li>Signup</li>
-                </Link>
-              </>
-            )}
-          </ul>
-        </div> */}
+              {user ? (
+                <button className="btnAuthLogoutSidebar" onClick={handleLogout}>
+                  <li>Logout</li>
+                </button>
+              ) : (
+                <>
+                  <a href={"/login"} className="btnAuthSidebar">
+                    <li>Login</li>
+                  </a>
+                  <a href={"/signup"} className="btnAuthSidebar">
+                    <li>Signup</li>
+                  </a>
+                </>
+              )}
+            </ul>
+          </div>
+        )}
       </header>
     </>
   );

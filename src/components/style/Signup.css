@@ -1,4 +1,8 @@
 .signupContainer {
+  /* background: url("/public/dogCatBg.png"); */
+  /* background-repeat: no-repeat; */
+  /* background-position: right; */
+  /* background-size: cover; */
   background: linear-gradient(#60452b, #f5f5dc);
   min-height: 100vh;
   padding-bottom: 3rem;
@@ -8,14 +12,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-top: 5rem; */
+  padding-top: 7rem;
+  /* margin-top: 3rem; */
 }
 
 .signupContainer > .signupArticle > div {
   font-size: 1rem;
-  background: linear-gradient(#805b38, #f0f0f0);
+  /* background: url("/public/pawBg.jpg"); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  background: linear-gradient(#f5f1ec, #f8f5f2, #faf7f4);
+  /* background: linear-gradient(#805b38, #f0f0f0); */
   padding: 0 5rem;
-  border-radius: 10%;
+  border-radius: 10px;
   /* box-shadow:
     10px 10px 30px rgb(169, 169, 169) inset,
     -30px 10px 30px rgb(193, 193, 193) inset; */
@@ -37,7 +46,8 @@
 
 .signupForm > label {
   align-self: start;
-  color: white;
+  color: black;
+  font-weight: 900;
 }
 .signupForm > input {
   padding: 0.5rem 1rem;
@@ -72,8 +82,8 @@
 .signupForm > button:first-of-type {
   background-color: transparent;
   border-radius: 10px;
-  color: white;
-  border: 3px solid white;
+  color: black;
+  border: 3px solid black;
 }
 
 .signupForm > button:first-of-type:hover {
@@ -84,9 +94,32 @@
 }
 
 .signupForm > p {
-  color: white;
+  color: black;
   font-weight: 900;
   font-family: "Inter", sans-serif;
+}
+
+.signupContainerChild {
+  position: relative;
+  max-width: 100%;
+  padding-inline: 0;
+  /* padding: 1rem; */
+}
+
+#signupContainerChild {
+  padding-inline: 3rem;
+}
+
+.userError {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-15%);
+  color: rgb(152, 5, 5);
+  font-weight: 900;
+  transition: all 1s ease;
 }
 
 @media (max-width: 500px) {
@@ -103,7 +136,34 @@
   }
 
   .signupForm > p {
-    color: white;
+    color: black;
     text-align: center;
   }
+
+  .userError {
+    transform: translateX(-20%);
+    font-size: 1.05rem;
+  }
+
+  #signupContainerChild {
+    padding-inline: 1rem;
+  }
+}
+
+#or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+#or::before,
+#or::after {
+  content: "";
+  width: 100px;
+  max-width: 100px;
+  height: 1px;
+  background-color: black;
 }

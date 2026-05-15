@@ -11,7 +11,7 @@ export default function Signup() {
     email: "",
     password: "",
   });
-
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const { apiUrl } = useContext(AuthContext);
@@ -52,6 +52,7 @@ export default function Signup() {
         }
       } catch (error) {
         console.error(error);
+        setError(true);
       } finally {
         // setFormInfo("")
       }
@@ -68,49 +69,55 @@ export default function Signup() {
   return (
     <>
       <section className="signupContainer">
-        <Navbar />
+        {/* <Navbar /> */}
         <article className="signupArticle">
           <div className="signupContainerChild">
+            {error ? <div className="userError">User already exists!</div> : ""}
+
             <form className="signupForm" onSubmit={handleSubmit}>
-              <label>Enter your Name:</label>
+              <label>Name</label>
               <input
                 type="text"
                 name="name"
                 value={formInfo.name}
                 onChange={handleChange}
                 required
+                placeholder="Enter your name"
               />
-              <label>Enter your Surname:</label>
+              <label>Surname</label>
               <input
                 type="text"
                 name="surname"
                 value={formInfo.surname}
                 onChange={handleChange}
                 required
+                placeholder="Enter your surname"
               />
 
-              <label>Enter your Email:</label>
+              <label>Email</label>
               <input
                 type="email"
                 name="email"
                 value={formInfo.email}
                 onChange={handleChange}
                 required
+                placeholder="Enter your email"
               />
 
-              <label>Enter your Password:</label>
+              <label>Password</label>
               <input
                 type="password"
                 name="password"
                 value={formInfo.password}
                 onChange={handleChange}
                 required
+                placeholder="Enter your password"
               />
               <button type="submit">Submit</button>
               <p>
                 Already have an account? <Link to={"/login"}>Log In Here</Link>
               </p>
-              <p>-----OR-----</p>
+              <p id="or">OR</p>
 
               {/* <div> */}
               <button onClick={handleGoogle} className="googleBtn">

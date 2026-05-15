@@ -10,6 +10,8 @@ export default function Login() {
     password: "",
   });
 
+  const [error, setError] = useState(false);
+
   const navigate = useNavigate();
 
   const { apiUrl } = useContext(AuthContext);
@@ -55,6 +57,8 @@ export default function Login() {
           navigate(localStorage.getItem("currentLocation"), { replace: true });
         }
       } catch (error) {
+        setError(true);
+
         console.error(error);
       } finally {
         // setFormInfo("")
@@ -72,32 +76,35 @@ export default function Login() {
   return (
     <>
       <section className="signupContainer">
-        <Navbar />
+        {/* <Navbar /> */}
         <article className="signupArticle">
-          <div className="signupContainerChild">
+          <div className="signupContainerChild" id="signupContainerChild">
+            {error ? <div className="userError">Wrong credentials!</div> : ""}
             <form className="signupForm" onSubmit={handleSubmit}>
-              <label>Enter your Email:</label>
+              <label>Email</label>
               <input
                 type="email"
                 name="email"
                 value={formInfo.email}
                 onChange={handleChange}
                 required
+                placeholder="Enter your email"
               />
 
-              <label>Enter your Password:</label>
+              <label>Password</label>
               <input
                 type="password"
                 name="password"
                 value={formInfo.password}
                 onChange={handleChange}
                 required
+                placeholder="Enter your password"
               />
               <button type="submit">Submit</button>
               <p>
                 Don't have an account? <Link to={"/signup"}>Sign Up Here</Link>
               </p>
-              <p>-----OR-----</p>
+              <p id="or">OR</p>
               {/* <div> */}
               <button onClick={handleGoogle} className="googleBtn">
                 <img

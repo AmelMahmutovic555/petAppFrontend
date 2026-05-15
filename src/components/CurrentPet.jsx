@@ -96,7 +96,7 @@ export default function CurrentPet() {
   return (
     <>
       <section className="currPetParent">
-        <Navbar />
+        {/* <Navbar /> */}
         {loading ? (
           <p className="loading">Loading...</p>
         ) : (

@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <section className="homeParent">
-        <Navbar />
+        {/* <Navbar /> */}
         <article id="homeChild">
           <div className="homeFirstChild">
             <h1 className="WelcomePetCareHeading">Welcome To PetCare Match</h1>

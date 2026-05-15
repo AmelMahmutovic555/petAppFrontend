@@ -160,7 +160,7 @@ export default function Pets() {
                     <p className="petName">{p.name}</p>
                     <p>📅 Age: {p.age}</p>
 
-                    <p>☎︎ Contact Number: {p.phone}</p>
+                    <p>📞 Contact Number: {p.phone}</p>
                     <Link to={`/pets/${p.name}`} className="babysitLink">
                       <button className="babysitBtn">
                         {p.type === "cat" ? "🐱" : "🐾"} Babysit

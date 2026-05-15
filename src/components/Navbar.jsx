@@ -42,7 +42,7 @@ export default function Navbar() {
               </a>
 
               {user ? (
-                <button className="btnAuth" onClick={handleLogout}>
+                <button className="btnAuthLogout" onClick={handleLogout}>
                   <li>Logout</li>
                 </button>
               ) : (

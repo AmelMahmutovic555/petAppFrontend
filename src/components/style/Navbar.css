@@ -125,6 +125,7 @@
 
 .btnAuthLogoutSidebar {
   background-color: transparent;
+  border: none;
 }
 
 .btnAuthLogoutSidebar > * {

@@ -8,7 +8,7 @@ export default function AuthProvider({ children }) {
 
   const [user, setUser] = useState(null);
   // const [existingUser, setExistingUser] = useState(null);
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [successBabysit, setSuccessBabysit] = useState("");
   const [assignedPet, setAssignedPet] = useState({});
   const navigate = useNavigate();
@@ -16,6 +16,7 @@ export default function AuthProvider({ children }) {
 
   const getInfo = useCallback(async () => {
     try {
+      // setLoading(true);
       const res = await axios.get(`${apiUrl}/user/me`, {
         withCredentials: true,
       });
@@ -23,27 +24,31 @@ export default function AuthProvider({ children }) {
     } catch (error) {
       setUser(null);
     } finally {
-      // setLoading(false);
+      setLoading(false);
     }
   }, [apiUrl]);
 
   useEffect(() => {
     if (localStorage.getItem("user") !== null) {
       getInfo();
+    } else {
+      setUser(null);
+      setLoading(false);
     }
   }, [getInfo, location.pathname]);
 
   async function handleLogout() {
     try {
-      // setLoading(true);
+      setLoading(true);
       await axios.post(`${apiUrl}/user/logout`, {}, { withCredentials: true });
       localStorage.removeItem("user");
     } catch (error) {
       console.error(error);
     } finally {
       setUser(null);
+      setLoading(false);
+
       navigate("/");
-      // setLoading(false);
     }
   }
 
@@ -58,6 +63,8 @@ export default function AuthProvider({ children }) {
         setAssignedPet,
         apiUrl,
         handleLogout,
+        loading,
+        setLoading,
       }}
     >
       {children}

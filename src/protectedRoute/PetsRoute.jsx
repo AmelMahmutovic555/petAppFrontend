@@ -1,15 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../authContext/AuthContext";
 import { Outlet, Navigate } from "react-router-dom";
 
-export default function ProtectedRoute() {
+export default function PetsRoute() {
   const { user, loading } = useContext(AuthContext);
 
   if (loading) {
     return <p>Loading...</p>;
   }
 
-  if (user !== null) {
+  if (user === null) {
     return <Navigate to={"/"} replace />;
   }
 

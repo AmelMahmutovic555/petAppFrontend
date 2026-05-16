@@ -44,13 +44,17 @@ export default function Navbar() {
                 <li>Add Pet</li>
               </a>
 
-              <a href={"/yourPets"}>
-                <li>Your Pets</li>
-              </a>
+              {user && (
+                <>
+                  <a href={"/yourPets"}>
+                    <li>Your Pets</li>
+                  </a>
 
-              <a href={"/toBabysit"}>
-                <li>Pets To Babysit</li>
-              </a>
+                  <a href={"/toBabysit"}>
+                    <li>Pets To Babysit</li>
+                  </a>
+                </>
+              )}
 
               {user ? (
                 <button className="btnAuthLogoutSidebar" onClick={handleLogout}>
@@ -81,13 +85,17 @@ export default function Navbar() {
               <a href={"/addPet"}>
                 <li>Add Pet</li>
               </a>
-              <a href={"/yourPets"}>
-                <li>Your Pets</li>
-              </a>
+              {user && (
+                <>
+                  <a href={"/yourPets"}>
+                    <li>Your Pets</li>
+                  </a>
 
-              <a href={"/toBabysit"}>
-                <li>Pets To Babysit</li>
-              </a>
+                  <a href={"/toBabysit"}>
+                    <li>Pets To Babysit</li>
+                  </a>
+                </>
+              )}
 
               {user ? (
                 <button className="btnAuthLogoutSidebar" onClick={handleLogout}>

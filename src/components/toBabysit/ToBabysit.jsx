@@ -12,11 +12,18 @@ export default function ToBabysit() {
   const [error, setError] = useState(false);
   const location = useLocation();
   useEffect(() => {
+    if (!user?.userId) return;
+
+    localStorage.setItem("currentPage", location.pathname);
+
     async function getInfo() {
       try {
         // if (user) {
         const res = await axios.get(
-          `${apiUrl}/pets/findByToBabysitUser/${user && parseInt(user.userId)}`,
+          `${apiUrl}/pets/findByToBabysitUser/${parseInt(user.userId)}`,
+          {
+            withCredentials: true,
+          },
         );
 
         setPets(res.data);

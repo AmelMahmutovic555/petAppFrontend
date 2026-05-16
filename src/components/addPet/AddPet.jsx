@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./style/AddPet.css";
 import axios from "axios";
 import { AuthContext } from "../../authContext/AuthContext";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import Footer from "../Footer";
 
 export default function AddPet() {
@@ -15,7 +15,13 @@ export default function AddPet() {
   });
 
   const navigate = useNavigate();
-  const { apiUrl } = useContext(AuthContext);
+  const { apiUrl, user } = useContext(AuthContext);
+  const location = useLocation();
+
+  useEffect(() => {
+    localStorage.setItem("currentPage", location.pathname);
+  }, [location.pathname]);
+
   function handleChange(e) {
     const { value, name } = e.target;
     setPetInfo((prevState) => ({
@@ -26,6 +32,11 @@ export default function AddPet() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!user) {
+      navigate("/login");
+      return;
+    }
 
     try {
       const petInfoObj = {

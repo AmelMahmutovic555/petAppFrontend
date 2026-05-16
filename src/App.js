@@ -15,6 +15,8 @@ import Navbar from "./components/Navbar.jsx";
 import AddPet from "./components/addPet/AddPet.jsx";
 import ToBabysit from "./components/toBabysit/ToBabysit.jsx";
 import YourPets from "./components/yourPets/YourPets.jsx";
+import ProtectedRoute from "./protectedRoute/ProtectedRoute.jsx";
+import PetsRoute from "./protectedRoute/PetsRoute.jsx";
 
 function AppLayout() {
   return (
@@ -28,9 +30,9 @@ function AppLayout() {
 export default function App() {
   const { loading } = useContext(AuthContext);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
   return (
     <>
       {/* <BrowserRouter> */}
@@ -38,16 +40,19 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        {/* <Route element={<ProtectedRoute />}> */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        {/* </Route> */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Route>
+
+        <Route element={<PetsRoute />}>
+          <Route path="/yourPets" element={<YourPets />} />
+          <Route path="/toBabysit" element={<ToBabysit />} />
+        </Route>
 
         <Route path="/pets" element={<Pets />} />
         <Route path="/pets/:name" element={<CurrentPet />} />
         <Route path="/addPet" element={<AddPet />} />
-        <Route path="/yourPets" element={<YourPets />} />
-        <Route path="/toBabysit" element={<ToBabysit />} />
 
         {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
       </Routes>

@@ -31,7 +31,7 @@ export default function YourPets() {
     // if (user) {
     getInfo();
     // }
-  }, [location.pathname, user]);
+  }, [location.pathname, user, apiUrl]);
   return (
     <>
       <section className="yourPetsParent">

@@ -171,6 +171,7 @@ export default function Pets() {
                   </div>
                 );
               }
+              return null;
             })
           )}
         </div>

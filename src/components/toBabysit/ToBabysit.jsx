@@ -29,7 +29,7 @@ export default function ToBabysit() {
     }
 
     getInfo();
-  }, [location.pathname, user]);
+  }, [location.pathname, user, apiUrl]);
   return (
     <>
       <section className="toBabysitParent">

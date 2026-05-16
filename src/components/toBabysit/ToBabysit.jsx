@@ -20,10 +20,7 @@ export default function ToBabysit() {
       try {
         // if (user) {
         const res = await axios.get(
-          `${apiUrl}/pets/findByToBabysitUser/${parseInt(user.userId)}`,
-          {
-            withCredentials: true,
-          },
+          `${apiUrl}/pets/findByToBabysitUser/${user && parseInt(user.userId)}`,
         );
 
         setPets(res.data);

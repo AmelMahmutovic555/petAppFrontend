@@ -19,10 +19,7 @@ export default function YourPets() {
       try {
         // if (user) {
         const res = await axios.get(
-          `${apiUrl}/pets/findByUser/${parseInt(user.userId)}`,
-          {
-            withCredentials: true,
-          },
+          `${apiUrl}/pets/findByUser/${parseInt(user && user.userId)}`,
         );
 
         setPets(res.data);

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import "./style/YourPets.css";
 import axios from "axios";
 import { AuthContext } from "../../authContext/AuthContext";
-import { Link, useLocation } from "react-router";
+import { useLocation } from "react-router";
 import Footer from "../Footer";
 
 export default function YourPets() {

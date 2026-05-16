@@ -1,0 +1,13 @@
+.toBabysitParent {
+  background: linear-gradient(#60452b, #f5f5dc);
+
+  /* background: radial-gradient(
+    rgb(170, 190, 197),
+    rgb(192, 199, 202),
+    rgb(172, 180, 182),
+    rgb(209, 210, 212)
+  ); */
+  padding-top: 7.5rem;
+
+  min-height: 100dvh;
+}

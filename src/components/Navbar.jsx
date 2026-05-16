@@ -40,6 +40,17 @@ export default function Navbar() {
               <a href={"/pets"}>
                 <li>Pets</li>
               </a>
+              <a href={"/addPet"}>
+                <li>Add Pet</li>
+              </a>
+
+              <a href={"/yourPets"}>
+                <li>Your Pets</li>
+              </a>
+
+              <a href={"/toBabysit"}>
+                <li>Pets To Babysit</li>
+              </a>
 
               {user ? (
                 <button className="btnAuthLogoutSidebar" onClick={handleLogout}>
@@ -66,6 +77,16 @@ export default function Navbar() {
               </a>
               <a href={"/pets"}>
                 <li>Pets</li>
+              </a>
+              <a href={"/addPet"}>
+                <li>Add Pet</li>
+              </a>
+              <a href={"/yourPets"}>
+                <li>Your Pets</li>
+              </a>
+
+              <a href={"/toBabysit"}>
+                <li>Pets To Babysit</li>
               </a>
 
               {user ? (

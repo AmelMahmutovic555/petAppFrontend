@@ -12,6 +12,9 @@ import "./index.css";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext.jsx";
 import Navbar from "./components/Navbar.jsx";
+import AddPet from "./components/addPet/AddPet.jsx";
+import ToBabysit from "./components/toBabysit/ToBabysit.jsx";
+import YourPets from "./components/yourPets/YourPets.jsx";
 
 function AppLayout() {
   return (
@@ -42,6 +45,9 @@ export default function App() {
 
         <Route path="/pets" element={<Pets />} />
         <Route path="/pets/:name" element={<CurrentPet />} />
+        <Route path="/addPet" element={<AddPet />} />
+        <Route path="/yourPets" element={<YourPets />} />
+        <Route path="/toBabysit" element={<ToBabysit />} />
 
         {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
       </Routes>

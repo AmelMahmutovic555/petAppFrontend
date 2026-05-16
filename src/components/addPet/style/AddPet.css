@@ -1,0 +1,87 @@
+.addPetParent {
+  background: linear-gradient(#60452b, #f5f5dc);
+  padding-top: 10rem;
+  min-height: 100vh;
+}
+
+.addPetChild {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: auto;
+  width: 90%;
+  max-width: 90%;
+  padding-block: 5rem;
+  border-radius: 10px;
+  /* padding-inline: 13rem; */
+}
+
+.petFormInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  /* width: 50%; */
+  /* max-width: 50%; */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.petFormInfo > * {
+  width: 50%;
+  max-width: 50%;
+  align-self: center;
+  /* margin: auto; */
+  /* margin-left: 1rem; */
+}
+
+.petFormInfo > input {
+  height: 2rem;
+  padding-left: 1rem;
+  width: 90%;
+  max-width: 90%;
+}
+
+.petFormInfo > label {
+  align-self: start;
+  margin-left: 3rem;
+}
+
+.petFileImage {
+  padding-inline: 0;
+  margin-inline: 0;
+
+  cursor: pointer;
+}
+
+.petFormSubmit {
+  padding: 1rem 0;
+  align-self: center;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.petFormSubmit:hover {
+  background-color: #805b38;
+  border-color: #805b38;
+  color: white;
+  transition: all 1s ease;
+  cursor: pointer;
+}
+
+.selectPet {
+  height: 3rem;
+  text-align: center;
+  width: 90%;
+  max-width: 90%;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .petFormInfo > label {
+    margin-left: 1rem;
+  }
+}

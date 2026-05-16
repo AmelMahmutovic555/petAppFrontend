@@ -62,21 +62,21 @@
   background: radial-gradient(
     circle,
     rgb(36, 22, 22) 0%,
-    rgb(109, 105, 95) 10%,
-    rgb(51, 41, 41) 90%
+    rgb(44, 43, 39) 10%,
+    rgb(22, 19, 19) 90%
   );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 3px 13px 30px black;
+  /* text-shadow: 13px 13px 30px black; */
 }
 
 .applyText {
   background: radial-gradient(
     circle,
     rgb(36, 22, 22) 0%,
-    rgb(109, 105, 95) 10%,
-    rgb(51, 41, 41) 90%
+    rgb(44, 43, 39) 10%,
+    rgb(22, 19, 19) 90%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -96,13 +96,26 @@
   background: radial-gradient(
     circle,
     rgb(36, 22, 22) 0%,
-    rgb(109, 105, 95) 10%,
-    rgb(51, 41, 41) 90%
+    rgb(44, 43, 39) 10%,
+    rgb(22, 19, 19) 90%
   );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 3px 13px 30px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  width: 100px;
+  height: 1px;
+  background-color: black;
 }
 
 .petsBtn > * {
@@ -122,14 +135,4 @@
   background: #60452b;
   color: rgb(255, 255, 255);
   border-color: white;
-}
-
-.or::before {
-  content: "-----";
-  margin-right: 0.3rem;
-}
-
-.or::after {
-  content: "-----";
-  margin-left: 0.3rem;
 }

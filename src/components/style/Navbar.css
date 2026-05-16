@@ -81,7 +81,7 @@
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  background-color: rgba(70, 46, 19, 1);
+  background-color: #4b321a;
   height: 100dvh;
   /* max-height: 100dvh; */
   min-height: 100dvh;
@@ -130,8 +130,9 @@
 
 .btnAuthLogoutSidebar > * {
   border: 1px solid white;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 @media (max-width: 570px) {

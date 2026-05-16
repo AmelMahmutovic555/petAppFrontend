@@ -132,18 +132,38 @@ export default function Pets() {
             <p className="loading">Loading...</p>
           ) : (
             pets.map((p) => {
-              if (p.userId !== null) {
+              if (p.toBabysit === null) {
+                if (p.userId !== null) {
+                  return (
+                    <div key={p.id} className="foundBabysitterParent">
+                      <p className="foundBabysitter">Found a Babysitter!</p>
+                      <img src={p.image} alt="pets" width={300} height={200} />
+
+                      <div className="petsInformation">
+                        <p className="petName">{p.name}</p>
+                        <p>📅 Age: {p.age}</p>
+                        <p>📞 Contact Number: {p.phone}</p>
+                        <Link className="babysitLink">
+                          <button className="babysitBtn" disabled>
+                            {p.type === "cat" ? "🐱" : "🐾"} Babysit
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                }
+
                 return (
-                  <div key={p.id} className="foundBabysitterParent">
-                    <p className="foundBabysitter">Found a Babysitter!</p>
+                  <div key={p.id}>
                     <img src={p.image} alt="pets" width={300} height={200} />
 
                     <div className="petsInformation">
                       <p className="petName">{p.name}</p>
                       <p>📅 Age: {p.age}</p>
+
                       <p>📞 Contact Number: {p.phone}</p>
-                      <Link className="babysitLink">
-                        <button className="babysitBtn" disabled>
+                      <Link to={`/pets/${p.name}`} className="babysitLink">
+                        <button className="babysitBtn">
                           {p.type === "cat" ? "🐱" : "🐾"} Babysit
                         </button>
                       </Link>
@@ -151,24 +171,6 @@ export default function Pets() {
                   </div>
                 );
               }
-
-              return (
-                <div key={p.id}>
-                  <img src={p.image} alt="pets" width={300} height={200} />
-
-                  <div className="petsInformation">
-                    <p className="petName">{p.name}</p>
-                    <p>📅 Age: {p.age}</p>
-
-                    <p>📞 Contact Number: {p.phone}</p>
-                    <Link to={`/pets/${p.name}`} className="babysitLink">
-                      <button className="babysitBtn">
-                        {p.type === "cat" ? "🐱" : "🐾"} Babysit
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              );
             })
           )}
         </div>

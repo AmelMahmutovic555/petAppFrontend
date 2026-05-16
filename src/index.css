@@ -31,3 +31,9 @@ body,
 .loading {
   color: white;
 }
+
+.errorMessage {
+  color: white;
+  font-weight: 900;
+  font-size: 1.5rem;
+}

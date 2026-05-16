@@ -73,7 +73,7 @@ export default function CurrentPet() {
       };
       // console.log(pet?.name)
       // }
-      const res = await axios.put(`${apiUrl}/pets/add/${name}`, babysitInfo, {
+      const res = await axios.put(`${apiUrl}/pets/edit/${name}`, babysitInfo, {
         withCredentials: true,
       });
       if (res.data) {

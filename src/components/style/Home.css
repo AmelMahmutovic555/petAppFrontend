@@ -144,8 +144,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
   text-decoration: none;
   margin-top: 1.5rem;
+  width: fit-content;
+  max-width: fit-content;
 }
 
 #petsBtnHome > * {

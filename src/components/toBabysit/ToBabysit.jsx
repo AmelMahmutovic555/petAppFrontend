@@ -12,7 +12,7 @@ export default function ToBabysit() {
   const [error, setError] = useState(false);
   const location = useLocation();
   useEffect(() => {
-    if (!user?.userId) return;
+    // if (!user?.userId) return;
 
     localStorage.setItem("currentPage", location.pathname);
 

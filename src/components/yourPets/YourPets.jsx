@@ -12,7 +12,7 @@ export default function YourPets() {
   const [error, setError] = useState(false);
   const location = useLocation();
   useEffect(() => {
-    if (!user?.userId) return;
+    // if (!user?.userId) return;
     localStorage.setItem("currentPage", location.pathname);
 
     async function getInfo() {

@@ -18,6 +18,7 @@ export default function Pets() {
     // setSuccessBabysit,
     // assignedPet,
     // setAssignedPet,
+    user,
     apiUrl,
   } = useContext(AuthContext);
   useEffect(() => {
@@ -132,7 +133,7 @@ export default function Pets() {
             <p className="loading">Loading...</p>
           ) : (
             pets.map((p) => {
-              if (p.toBabysit === null) {
+              if ((user && p.toBabysit !== user.userId) || user === null) {
                 if (p.userId !== null) {
                   return (
                     <div key={p.id} className="foundBabysitterParent">

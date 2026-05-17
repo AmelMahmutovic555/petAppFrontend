@@ -30,6 +30,7 @@ export default function Pets() {
         const res = await axios.get(`${apiUrl}/pets`);
         if (res.data) {
           setPets(res.data);
+          console.log(res.data);
         } else {
           setPets([]);
         }
@@ -133,7 +134,10 @@ export default function Pets() {
             <p className="loading">Loading...</p>
           ) : (
             pets.map((p) => {
-              if ((user && p.toBabysit !== user.userId) || user === null) {
+              if (
+                (user && p.toBabysit !== parseInt(user.userId)) ||
+                user === null
+              ) {
                 if (p.userId !== null) {
                   return (
                     <div key={p.id} className="foundBabysitterParent">

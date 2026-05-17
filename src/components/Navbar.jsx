@@ -11,7 +11,7 @@ export default function Navbar() {
 
   useEffect(() => {
     localStorage.setItem("currentPage", location.pathname);
-    console.log(user);
+    // console.log(user);
   }, [location.pathname, user]);
 
   function handleSidebar() {

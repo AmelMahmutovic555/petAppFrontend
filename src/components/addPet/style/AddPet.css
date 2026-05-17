@@ -1,6 +1,8 @@
 .addPetParent {
+  /* background-color: red; */
   background: linear-gradient(#60452b, #f5f5dc);
-  padding-top: 10rem;
+  padding-top: 7rem;
+  padding-bottom: 1rem;
   min-height: 100vh;
 }
 
@@ -12,7 +14,7 @@
   margin: auto;
   width: 90%;
   max-width: 90%;
-  padding-block: 5rem;
+  padding-block: 5.5rem;
   border-radius: 10px;
   /* padding-inline: 13rem; */
 }
@@ -83,5 +85,9 @@
 @media (max-width: 500px) {
   .petFormInfo > label {
     margin-left: 1rem;
+  }
+
+  .addPetChild {
+    padding-block: 3rem;
   }
 }

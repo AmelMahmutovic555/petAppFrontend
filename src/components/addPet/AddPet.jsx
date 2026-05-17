@@ -8,7 +8,7 @@ import Footer from "../Footer";
 export default function AddPet() {
   const [petInfo, setPetInfo] = useState({
     name: "",
-    age: 0,
+    age: "",
     phone: "",
     type: "Dog",
     image: "",
@@ -28,6 +28,8 @@ export default function AddPet() {
       ...prevState,
       [name]: value,
     }));
+
+    console.log(typeof value);
   }
 
   async function handleSubmit(e) {
@@ -41,7 +43,7 @@ export default function AddPet() {
     try {
       const petInfoObj = {
         name: petInfo.name,
-        age: petInfo.age,
+        age: parseInt(petInfo.age),
         phone: petInfo.phone,
         type: petInfo.type,
         image: petInfo.image,
@@ -69,6 +71,7 @@ export default function AddPet() {
               value={petInfo.name}
               onChange={handleChange}
               required
+              placeholder="Enter pets name"
             />
             <label>Age</label>
             <input
@@ -77,6 +80,7 @@ export default function AddPet() {
               value={petInfo.age}
               onChange={handleChange}
               required
+              placeholder="Enter pets age"
             />
             <label>Phone</label>
             <input
@@ -85,6 +89,7 @@ export default function AddPet() {
               value={petInfo.phone}
               onChange={handleChange}
               required
+              placeholder="Enter your phone number"
             />
             <label>Type</label>
             <select

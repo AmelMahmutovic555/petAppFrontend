@@ -66,7 +66,7 @@ export default function ToBabysit() {
         image: selectedPet.image,
         userId: null,
       };
-      const res = await axios.put(
+      await axios.put(
         `${apiUrl}/pets/edit/${selectedPet.name}/${selectedPet.age}/${selectedPet.phone}/${selectedPet.type}`,
         updateInfo,
         {

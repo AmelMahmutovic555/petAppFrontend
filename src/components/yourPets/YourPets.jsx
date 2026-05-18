@@ -20,7 +20,7 @@ export default function YourPets() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
+  // const [successMessage, setSuccessMessage] = useState("");
   const location = useLocation();
 
   const dialogRef = useRef(null);
@@ -100,9 +100,9 @@ export default function YourPets() {
           withCredentials: true,
         },
       );
-      if (res.data) {
-        setSuccessMessage(res.data);
-      }
+      // if (res.data) {
+      //   setSuccessMessage(res.data);
+      // }
 
       // setPets((prevPets) =>
       //   prevPets.filter((pet) => pet.id !== selectedPet.id),

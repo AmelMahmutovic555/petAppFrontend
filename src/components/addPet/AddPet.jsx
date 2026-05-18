@@ -106,8 +106,8 @@ export default function AddPet() {
               onChange={handleChange}
               required
             >
-              <option>Dog</option>
-              <option>Cat</option>
+              <option value={"dog"}>Dog</option>
+              <option value={"cat"}>Cat</option>
             </select>
             <label>Image</label>
             <input

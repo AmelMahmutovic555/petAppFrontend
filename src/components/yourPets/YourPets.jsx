@@ -94,7 +94,7 @@ export default function YourPets() {
     if (!selectedPet) return;
 
     try {
-      const res = await axios.delete(
+      await axios.delete(
         `${apiUrl}/pets/delete/${selectedPet.name}/${selectedPet.age}/${selectedPet.phone}/${selectedPet.type}`,
         {
           withCredentials: true,

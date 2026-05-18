@@ -33,7 +33,7 @@
 }
 
 .yourPetsInfo > * {
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   border-radius: 10px;
   background-color: transparent;
   cursor: pointer;
@@ -74,4 +74,25 @@
   text-align: center;
   width: 100%;
   max-width: 100%;
+}
+
+.yourPetsFirstChild {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.yourPetsFirstChild > p {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.yourPetsFirstChild > select {
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  cursor: pointer;
 }

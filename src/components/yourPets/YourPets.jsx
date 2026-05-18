@@ -14,7 +14,7 @@ export default function YourPets() {
     image: "",
   });
   const [selectedPet, setSelectedPet] = useState(null);
-
+  const [filterPet, setFilterPet] = useState("both");
   const { user, apiUrl } = useContext(AuthContext);
   const [pets, setPets] = useState([]);
 
@@ -144,9 +144,58 @@ export default function YourPets() {
     }
   }
 
+  async function handleFilter(event) {
+    const { value } = event.target;
+
+    setFilterPet(value);
+
+    if (value === "both") {
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          `${apiUrl}/pets/findByUser/${user && parseInt(user.userId)}`,
+        );
+        // if (res.data) {
+        setPets(res.data);
+        setError(false);
+
+        // }
+      } catch (error) {
+        setError(true);
+        setPets([]);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          `${apiUrl}/pets/findByUserAndType/${user && parseInt(user.userId)}/${value}`,
+        );
+        // if (res.data) {
+        setPets(res.data);
+        setError(false);
+        // }
+      } catch (error) {
+        setError(true);
+        setPets([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+  }
+
   return (
     <>
       <section className="yourPetsParent">
+        <div className="yourPetsFirstChild">
+          <p>Filter By:</p>
+          <select value={filterPet} onChange={handleFilter}>
+            <option value={"both"}>Both</option>
+            <option value={"dog"}>Dogs</option>
+            <option value={"cat"}>Cats</option>
+          </select>
+        </div>
         <div className="petsSecondChild">
           {loading ? (
             <p className="loading">Loading...</p>

@@ -10,6 +10,7 @@ export default function ToBabysit() {
 
   const { user, apiUrl } = useContext(AuthContext);
   const [pets, setPets] = useState([]);
+  const [filterPet, setFilterPet] = useState("both");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const location = useLocation();
@@ -83,9 +84,58 @@ export default function ToBabysit() {
       setLoading(false);
     }
   }
+
+  async function handleFilter(event) {
+    const { value } = event.target;
+
+    setFilterPet(value);
+
+    if (value === "both") {
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          `${apiUrl}/pets/findByToBabysitUser/${user && parseInt(user.userId)}`,
+        );
+        // if (res.data) {
+        setPets(res.data);
+        setError(false);
+
+        // }
+      } catch (error) {
+        setError(true);
+        setPets([]);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          `${apiUrl}/pets/findByToBabysitUserAndType/${user && parseInt(user.userId)}/${value}`,
+        );
+        // if (res.data) {
+        setPets(res.data);
+        setError(false);
+        // }
+      } catch (error) {
+        setError(true);
+        setPets([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+  }
   return (
     <>
       <section className="toBabysitParent">
+        <div className="yourPetsFirstChild">
+          <p>Filter By:</p>
+          <select value={filterPet} onChange={handleFilter}>
+            <option value={"both"}>Both</option>
+            <option value={"dog"}>Dogs</option>
+            <option value={"cat"}>Cats</option>
+          </select>
+        </div>
         <div className="petsSecondChild">
           {loading ? (
             <p className="loading">Loading...</p>

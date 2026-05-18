@@ -73,9 +73,6 @@ export default function ToBabysit() {
           withCredentials: true,
         },
       );
-      if (res.data) {
-        setSuccessMessage(res.data);
-      }
     } catch (error) {
       setError(true);
     } finally {

@@ -9,8 +9,8 @@ import CurrentPet from "./components/CurrentPet.jsx";
 // import ProtectedRoute from "./protectedRoute/ProtectedRoute.jsx";
 // import Home from "./components/Home.jsx"
 import "./index.css";
-// import { useContext } from "react";
-// import { AuthContext } from "./authContext/AuthContext.jsx";
+import { useContext } from "react";
+import { AuthContext } from "./authContext/AuthContext.jsx";
 import Navbar from "./components/Navbar.jsx";
 import AddPet from "./components/addPet/AddPet.jsx";
 import ToBabysit from "./components/toBabysit/ToBabysit.jsx";
@@ -28,11 +28,11 @@ function AppLayout() {
 }
 
 export default function App() {
-  // const { loading } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext);
 
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
   return (
     <>
       {/* <BrowserRouter> */}
@@ -51,7 +51,7 @@ export default function App() {
         </Route>
 
         <Route path="/pets" element={<Pets />} />
-        <Route path="/pets/:name" element={<CurrentPet />} />
+        <Route path="/pets/:name/:age/:phone/:type" element={<CurrentPet />} />
         <Route path="/addPet" element={<AddPet />} />
 
         {/* <Route path="*" element={<Navigate to="/" replace />} /> */}

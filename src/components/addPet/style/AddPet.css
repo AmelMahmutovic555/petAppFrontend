@@ -8,8 +8,10 @@
 
 .addPetChild {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   background-color: white;
   margin: auto;
   width: 90%;
@@ -80,6 +82,15 @@
   width: 90%;
   max-width: 90%;
   cursor: pointer;
+}
+
+.errorExists {
+  /* width: 15rem; */
+  max-width: 15rem;
+  text-align: center;
+  color: rgb(196, 41, 41);
+  font-weight: 900;
+  transition: all 1s ease;
 }
 
 @media (max-width: 500px) {

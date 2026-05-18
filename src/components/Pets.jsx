@@ -167,7 +167,10 @@ export default function Pets() {
                       <p>📅 Age: {p.age}</p>
 
                       <p>📞 Contact Number: {p.phone}</p>
-                      <Link to={`/pets/${p.name}`} className="babysitLink">
+                      <Link
+                        to={`/pets/${p.name}/${p.age}/${p.phone}/${p.type}`}
+                        className="babysitLink"
+                      >
                         <button className="babysitBtn">
                           {p.type === "cat" ? "🐱" : "🐾"} Babysit
                         </button>

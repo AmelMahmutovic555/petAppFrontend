@@ -4,11 +4,12 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 // import Navbar from "./Navbar.jsx";
 import "./style/CurrentPet.css";
 import { AuthContext } from "../authContext/AuthContext";
+import Footer from "./Footer";
 export default function CurrentPet() {
   const [pet, setPet] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const { name } = useParams();
+  const { name, age, phone, type } = useParams();
 
   const location = useLocation();
 
@@ -73,11 +74,14 @@ export default function CurrentPet() {
       };
       // console.log(pet?.name)
       // }
-      const res = await axios.put(`${apiUrl}/pets/edit/${name}`, babysitInfo, {
-        withCredentials: true,
-      });
+      const res = await axios.put(
+        `${apiUrl}/pets/edit/${name}/${age}/${phone}/${type}`,
+        babysitInfo,
+        {
+          withCredentials: true,
+        },
+      );
       if (res.data) {
-        console.log(res.data);
         setSuccessBabysit(
           "Successfully applied to babysit " +
             pet.name +
@@ -137,6 +141,8 @@ export default function CurrentPet() {
           </>
         )}
       </section>
+
+      <Footer />
     </>
   );
 }

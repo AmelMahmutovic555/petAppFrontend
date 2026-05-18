@@ -14,6 +14,8 @@ export default function AddPet() {
     image: "",
   });
 
+  const [error, setError] = useState(false);
+
   const navigate = useNavigate();
   const { apiUrl, user } = useContext(AuthContext);
   const location = useLocation();
@@ -28,8 +30,6 @@ export default function AddPet() {
       ...prevState,
       [name]: value,
     }));
-
-    console.log(typeof value);
   }
 
   async function handleSubmit(e) {
@@ -56,13 +56,20 @@ export default function AddPet() {
       if (res.data) {
         navigate("/pets");
       }
-    } catch (error) {}
+    } catch (error) {
+      setError(true);
+    }
   }
 
   return (
     <>
       <section className="addPetParent">
         <div className="addPetChild">
+          {error && (
+            <div className="errorExists">
+              Pet with that information already exists.
+            </div>
+          )}
           <form className="petFormInfo" onSubmit={handleSubmit}>
             <label>Name</label>
             <input

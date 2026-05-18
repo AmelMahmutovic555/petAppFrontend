@@ -66,13 +66,17 @@ export default function ToBabysit() {
         image: selectedPet.image,
         userId: null,
       };
-      await axios.put(
+      const res = await axios.put(
         `${apiUrl}/pets/edit/${selectedPet.name}/${selectedPet.age}/${selectedPet.phone}/${selectedPet.type}`,
         updateInfo,
         {
           withCredentials: true,
         },
       );
+
+      if (res.data) {
+        dialogRef.current?.close();
+      }
     } catch (error) {
       setError(true);
     } finally {

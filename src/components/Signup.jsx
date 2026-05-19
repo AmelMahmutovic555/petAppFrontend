@@ -71,7 +71,7 @@ export default function Signup() {
       <section className="signupContainer">
         {/* <Navbar /> */}
         <article className="signupArticle">
-          <div className="signupContainerChild">
+          <div className="signupContainerChild" id="signupContainerChild">
             {error ? <div className="userError">User already exists!</div> : ""}
 
             <form className="signupForm" onSubmit={handleSubmit}>

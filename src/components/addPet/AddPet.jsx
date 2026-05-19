@@ -41,10 +41,17 @@ export default function AddPet() {
     }
 
     try {
+      const phone =
+        petInfo.phone.slice(0, 3) +
+        "-" +
+        petInfo.phone.slice(3, 6) +
+        "-" +
+        petInfo.phone.slice(6, 9);
+
       const petInfoObj = {
         name: petInfo.name,
         age: parseInt(petInfo.age),
-        phone: petInfo.phone,
+        phone: phone,
         type: petInfo.type,
         image: petInfo.image,
       };

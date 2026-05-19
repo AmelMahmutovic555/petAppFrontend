@@ -75,7 +75,7 @@ export default function YourPets() {
     setPetInfo({
       name: pet.name,
       age: pet.age,
-      phone: pet.phone.split("-"),
+      phone: pet.phone.split("-").join(""),
       type: pet.type,
       image: pet.image,
     });

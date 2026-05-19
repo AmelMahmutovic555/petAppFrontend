@@ -133,7 +133,7 @@ export default function YourPets() {
         phone: phone,
         type: petInfo.type,
         image: petInfo.image,
-        userId: user?.userId,
+        toBabysit: user?.userId,
       };
 
       await axios.put(

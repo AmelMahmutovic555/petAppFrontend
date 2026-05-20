@@ -39,7 +39,7 @@ export default function ToBabysit() {
     }
 
     getInfo();
-  }, [location.pathname, user, apiUrl, pets, setPets]);
+  }, [location.pathname, user, apiUrl]);
 
   function openDialog(pet) {
     setSelectedPet(pet);
@@ -96,6 +96,8 @@ export default function ToBabysit() {
         const res = await axios.get(
           `${apiUrl}/pets/findByToBabysitUser/${user && parseInt(user.userId)}`,
         );
+        console.log(res.data);
+
         // if (res.data) {
         setPets(res.data);
         setError(false);
@@ -113,6 +115,8 @@ export default function ToBabysit() {
         const res = await axios.get(
           `${apiUrl}/pets/findByToBabysitUserAndType/${user && parseInt(user.userId)}/${value}`,
         );
+
+        console.log(res.data);
         // if (res.data) {
         setPets(res.data);
         setError(false);

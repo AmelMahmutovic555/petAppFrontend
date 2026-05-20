@@ -49,7 +49,7 @@ export default function YourPets() {
     // if (user) {
     getInfo();
     // }
-  }, [location.pathname, user, apiUrl, pets, setPets]);
+  }, [location.pathname, user, apiUrl]);
 
   function handleChange(e) {
     const { value, name } = e.target;

@@ -52,7 +52,7 @@ export default function AddPet() {
         name: petInfo.name,
         age: parseInt(petInfo.age),
         phone: phone,
-        type: petInfo.type,
+        type: petInfo.type.toLowerCase(),
         image: petInfo.image,
       };
 

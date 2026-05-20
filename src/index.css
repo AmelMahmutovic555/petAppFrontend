@@ -37,3 +37,14 @@ body,
   font-weight: 900;
   font-size: 1.5rem;
 }
+
+.loadingAuth {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  margin-top: 50vh;
+  font-size: 1.5rem;
+  font-weight: 900;
+}

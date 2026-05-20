@@ -13,6 +13,8 @@ export default function ToBabysit() {
   const [filterPet, setFilterPet] = useState("both");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  const [tmpFlag, setTmpFlag] = useState(false);
   const location = useLocation();
 
   const dialogRef = useRef(null);
@@ -25,21 +27,30 @@ export default function ToBabysit() {
     async function getInfo() {
       try {
         // if (user) {
-        const res = await axios.get(
-          `${apiUrl}/pets/findByToBabysitUser/${user && parseInt(user.userId)}`,
-        );
+        const res =
+          filterPet && filterPet.toLowerCase() === "both"
+            ? await axios.get(
+                `${apiUrl}/pets/findByToBabysitUser/${user && parseInt(user.userId)}`,
+              )
+            : await axios.get(
+                `${apiUrl}/pets/findByToBabysitUserAndType/${user && parseInt(user.userId)}/${filterPet && filterPet.toLowerCase()}`,
+              );
 
         setPets(res.data);
+        setError(false);
         // }
       } catch (error) {
         setError(true);
+        setPets([]);
       } finally {
         setLoading(false);
       }
     }
 
+    setTmpFlag(false);
+
     getInfo();
-  }, [location.pathname, user, apiUrl]);
+  }, [location.pathname, user, apiUrl, filterPet, tmpFlag, setTmpFlag]);
 
   function openDialog(pet) {
     setSelectedPet(pet);
@@ -63,7 +74,7 @@ export default function ToBabysit() {
         name: selectedPet.name,
         age: selectedPet.age,
         phone: selectedPet.phone,
-        type: selectedPet.type,
+        type: selectedPet.type.toLowerCase(),
         image: selectedPet.image,
         userId: null,
       };
@@ -76,9 +87,13 @@ export default function ToBabysit() {
       );
 
       if (res.data) {
+        setTmpFlag(true);
+
         dialogRef.current?.close();
       }
     } catch (error) {
+      setTmpFlag(true);
+
       setError(true);
     } finally {
       setLoading(false);
@@ -101,9 +116,12 @@ export default function ToBabysit() {
         // if (res.data) {
         setPets(res.data);
         setError(false);
+        setTmpFlag(true);
 
         // }
       } catch (error) {
+        setTmpFlag(true);
+
         setError(true);
         setPets([]);
       } finally {
@@ -116,7 +134,6 @@ export default function ToBabysit() {
           `${apiUrl}/pets/findByToBabysitUserAndType/${user && parseInt(user.userId)}/${value}`,
         );
 
-        console.log(res.data);
         // if (res.data) {
         setPets(res.data);
         setError(false);

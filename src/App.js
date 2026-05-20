@@ -31,8 +31,9 @@ export default function App() {
   const { loading } = useContext(AuthContext);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="loadingAuth">Loading...</p>;
   }
+
   return (
     <>
       {/* <BrowserRouter> */}

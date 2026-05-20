@@ -10,7 +10,7 @@ export default function YourPets() {
     name: "",
     age: "",
     phone: "",
-    type: "Dog",
+    type: "dog",
     image: "",
   });
   const [selectedPet, setSelectedPet] = useState(null);
@@ -20,6 +20,9 @@ export default function YourPets() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  const [tmpFlag, setTmpFlag] = useState(false);
+
   // const [successMessage, setSuccessMessage] = useState("");
   const location = useLocation();
 
@@ -32,24 +35,35 @@ export default function YourPets() {
 
     async function getInfo() {
       try {
+        setLoading(true);
         // if (user) {
-        const res = await axios.get(
-          `${apiUrl}/pets/findByUser/${parseInt(user && user.userId)}`,
-        );
+        const res =
+          filterPet && filterPet.toLowerCase() === "both"
+            ? await axios.get(
+                `${apiUrl}/pets/findByUser/${parseInt(user && user.userId)}`,
+              )
+            : await axios.get(
+                `${apiUrl}/pets/findByUserAndType/${user && parseInt(user.userId)}/${filterPet && filterPet.toLowerCase()}`,
+              );
 
         setPets(res.data);
+        setError(false);
+
         // }
       } catch (error) {
         setError(true);
+        setPets([]);
       } finally {
         setLoading(false);
       }
     }
 
+    setTmpFlag(false);
+
     // if (user) {
     getInfo();
     // }
-  }, [location.pathname, user, apiUrl]);
+  }, [location.pathname, user, apiUrl, filterPet, tmpFlag, setTmpFlag]);
 
   function handleChange(e) {
     const { value, name } = e.target;
@@ -100,6 +114,9 @@ export default function YourPets() {
           withCredentials: true,
         },
       );
+
+      setTmpFlag(true);
+
       // if (res.data) {
       //   setSuccessMessage(res.data);
       // }
@@ -111,6 +128,7 @@ export default function YourPets() {
       // closeDialog();
     } catch (error) {
       setError(true);
+      setTmpFlag(true);
     } finally {
       setLoading(false);
     }
@@ -131,7 +149,7 @@ export default function YourPets() {
         name: petInfo.name,
         age: petInfo.age,
         phone: phone,
-        type: petInfo.type,
+        type: petInfo.type.toLowerCase(),
         image: petInfo.image,
         toBabysit: user?.userId,
       };
@@ -143,8 +161,11 @@ export default function YourPets() {
           withCredentials: true,
         },
       );
+
+      setTmpFlag(true);
     } catch (error) {
       setError(true);
+      setTmpFlag(true);
     } finally {
       setLoading(false);
     }
@@ -164,9 +185,11 @@ export default function YourPets() {
         // if (res.data) {
         setPets(res.data);
         setError(false);
+        setTmpFlag(true);
 
         // }
       } catch (error) {
+        setTmpFlag(true);
         setError(true);
         setPets([]);
       } finally {
@@ -181,8 +204,12 @@ export default function YourPets() {
         // if (res.data) {
         setPets(res.data);
         setError(false);
+        setTmpFlag(true);
+
         // }
       } catch (error) {
+        setTmpFlag(true);
+
         setError(true);
         setPets([]);
       } finally {
@@ -272,8 +299,8 @@ export default function YourPets() {
                         onChange={handleChange}
                         required
                       >
-                        <option>Dog</option>
-                        <option>Cat</option>
+                        <option value={"dog"}>Dog</option>
+                        <option value={"cat"}>Cat</option>
                       </select>
                       <label id="updatePetInfo5">Image</label>
                       <input

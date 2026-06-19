@@ -237,7 +237,12 @@ export default function YourPets() {
           ) : (
             pets.map((p) => (
               <div key={p.id}>
-                <img src={p.image} alt="pets" width={300} height={200} />
+                <img
+                  src={apiUrl + "/" + p.image}
+                  alt="pets"
+                  width={300}
+                  height={200}
+                />
 
                 <div className="petsInformation" key={p.id}>
                   <p className="petName">{p.name}</p>

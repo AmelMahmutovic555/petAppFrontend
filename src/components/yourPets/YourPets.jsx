@@ -238,7 +238,11 @@ export default function YourPets() {
             pets.map((p) => (
               <div key={p.id}>
                 <img
-                  src={`${apiUrl}${p.image}`}
+                  src={
+                    p.image?.startsWith("http")
+                      ? p.image
+                      : `${apiUrl}${p.image}`
+                  }
                   alt="pets"
                   width={300}
                   height={200}

@@ -11,7 +11,7 @@ export default function AddPet() {
     age: "",
     phone: "",
     type: "Dog",
-    image: "",
+    image: null,
   });
 
   const [error, setError] = useState(false);
@@ -32,6 +32,13 @@ export default function AddPet() {
     }));
   }
 
+  function handleImageChange(e) {
+    setPetInfo((prevState) => ({
+      ...prevState,
+      image: e.target.files[0],
+    }));
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -48,15 +55,18 @@ export default function AddPet() {
         "-" +
         petInfo.phone.slice(6, 9);
 
-      const petInfoObj = {
-        name: petInfo.name,
-        age: parseInt(petInfo.age),
-        phone: phone,
-        type: petInfo.type.toLowerCase(),
-        image: petInfo.image,
-      };
+      const formData = new FormData();
 
-      const res = await axios.post(`${apiUrl}/pets/add`, petInfoObj, {
+      formData.append("name", petInfo.name);
+      formData.append("age", parseInt(petInfo.age));
+      formData.append("phone", phone);
+      formData.append("type", petInfo.type.toLowerCase());
+
+      if (petInfo.image) {
+        formData.append("image", petInfo.image);
+      }
+
+      const res = await axios.post(`${apiUrl}/pets/add`, formData, {
         withCredentials: true,
       });
 
@@ -121,8 +131,8 @@ export default function AddPet() {
               type="file"
               name="image"
               className="petFileImage"
-              value={petInfo.image}
-              onChange={handleChange}
+              accept="image/*"
+              onChange={handleImageChange}
             />
             <button type="submit" className="petFormSubmit">
               Submit

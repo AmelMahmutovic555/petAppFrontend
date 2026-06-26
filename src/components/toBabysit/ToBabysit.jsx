@@ -165,7 +165,7 @@ export default function ToBabysit() {
           ) : (
             pets.map((p) => (
               <div key={p.id}>
-                <img src={p.image} alt="pets" width={300} height={200} />
+                <img src={p.imageUrl} alt="pets" width={300} height={200} />
 
                 <div className="petsInformation">
                   <p className="petName">{p.name}</p>

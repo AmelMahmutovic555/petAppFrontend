@@ -182,6 +182,7 @@ export default function YourPets() {
         const res = await axios.get(
           `${apiUrl}/pets/findByUser/${user && parseInt(user.userId)}`,
         );
+
         // if (res.data) {
         setPets(res.data);
         setError(false);
@@ -237,7 +238,7 @@ export default function YourPets() {
           ) : (
             pets.map((p) => (
               <div key={p.id}>
-                <img src={p.image} alt="pets" width={300} height={200} />
+                <img src={p.imageUrl} alt="pets" width={300} height={200} />
 
                 <div className="petsInformation" key={p.id}>
                   <p className="petName">{p.name}</p>

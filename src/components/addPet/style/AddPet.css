@@ -93,6 +93,14 @@
   transition: all 1s ease;
 }
 
+.pfsDisabled {
+  font-weight: 900;
+}
+
+.pfsDisabled:hover {
+  background-color: none;
+}
+
 @media (max-width: 500px) {
   .petFormInfo > label {
     margin-left: 1rem;

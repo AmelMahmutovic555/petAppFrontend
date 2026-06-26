@@ -15,7 +15,7 @@ export default function AddPet() {
   });
 
   const [error, setError] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { apiUrl, user } = useContext(AuthContext);
   const location = useLocation();
@@ -48,6 +48,7 @@ export default function AddPet() {
     }
 
     try {
+      setLoading(true);
       const phone =
         petInfo.phone.slice(0, 3) +
         "-" +
@@ -75,6 +76,8 @@ export default function AddPet() {
       }
     } catch (error) {
       setError(true);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -134,9 +137,15 @@ export default function AddPet() {
               accept="image/*"
               onChange={handleImageChange}
             />
-            <button type="submit" className="petFormSubmit">
-              Submit
-            </button>
+            {loading ? (
+              <button className="petFormSubmit pfsDisabled" disabled>
+                Loading...
+              </button>
+            ) : (
+              <button type="submit" className="petFormSubmit">
+                Submit
+              </button>
+            )}
           </form>
         </div>
       </section>

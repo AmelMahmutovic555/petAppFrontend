@@ -72,7 +72,7 @@ export default function AddPet() {
       });
 
       if (res.data) {
-        navigate("/pets");
+        navigate("/yourPets");
       }
     } catch (error) {
       setError(true);

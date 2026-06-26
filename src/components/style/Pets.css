@@ -102,7 +102,7 @@
 
 .petsSecondChild > div:hover {
   transform: scale(1.05) translateY(-10px);
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .petsSecondChild > div > * {

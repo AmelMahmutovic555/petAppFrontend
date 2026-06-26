@@ -106,7 +106,7 @@ export default function CurrentPet() {
         ) : (
           <>
             <div id="currPetChild">
-              <img src={pet.image} alt="pet" className="petImg" />
+              <img src={pet.imageUrl} alt="pet" className="petImg" />
               <div className="petInfo">
                 <p className="petName">{pet.name}</p>
                 <p>📅 Age: {pet.age}</p>

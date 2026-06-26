@@ -87,7 +87,7 @@ export default function CurrentPet() {
             pet.name +
             ", you will be contacted soon.",
         );
-        navigate("/pets", {
+        navigate("/toBabysit", {
           replace: true,
         });
       }

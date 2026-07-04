@@ -1,5 +1,5 @@
 import "./style/Pets.css";
-import { Link, useLocation } from "react-router";
+import { useLocation } from "react-router";
 // import Footer from "./Footer.jsx";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -150,11 +150,11 @@ export default function Pets() {
                         <p className="petName">{p.name}</p>
                         <p>📅 Age: {p.age}</p>
                         <p>📞 Contact Number: {p.phone}</p>
-                        <Link className="babysitLink">
+                        <a className="babysitLink">
                           <button className="babysitBtn" disabled>
                             {p.type === "cat" ? "🐱" : "🐾"} Babysit
                           </button>
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   );
@@ -169,14 +169,14 @@ export default function Pets() {
                       <p>📅 Age: {p.age}</p>
 
                       <p>📞 Contact Number: {p.phone}</p>
-                      <Link
-                        to={`/pets/${p.name}/${p.age}/${p.phone}/${p.type}`}
+                      <a
+                        href={`/pets/${p.name}/${p.age}/${p.phone}/${p.type}`}
                         className="babysitLink"
                       >
                         <button className="babysitBtn">
                           {p.type === "cat" ? "🐱" : "🐾"} Babysit
                         </button>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 );

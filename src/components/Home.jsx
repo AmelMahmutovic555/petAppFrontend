@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import "./style/Home.css";
 // import axios from "axios";
 import Footer from "./Footer.jsx";
-import { Link, useLocation } from "react-router";
+import { useLocation } from "react-router";
 // import Navbar from "./Navbar.jsx";
 
 export default function Home() {
@@ -19,9 +19,9 @@ export default function Home() {
           <div className="homeFirstChild">
             <h1 className="WelcomePetCareHeading">Welcome To PetCare Match</h1>
             <p>Easy way to connect to our furry friends.</p>
-            <Link to={"/pets"} id="petsBtnHome">
+            <a href={"/pets"} id="petsBtnHome">
               <button>Become a Babysitter</button>
-            </Link>
+            </a>
           </div>
         </article>
       </section>

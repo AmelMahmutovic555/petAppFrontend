@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Blog from "./Blog.jsx";
+// import Blog from "./Blog.jsx";
 import "./style/Home.css";
 // import axios from "axios";
 import Footer from "./Footer.jsx";

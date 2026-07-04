@@ -6,7 +6,8 @@
     rgb(180, 180, 180),
     rgb(161, 165, 168)
   ); */
-  background: linear-gradient(#60452b, #f5f5dc);
+  /* background: linear-gradient(#57391d, #3e301c); */
+  background: linear-gradient(#4b321a, #4b321a);
 
   /* background: radial-gradient(
     rgb(170, 190, 197),
@@ -97,11 +98,12 @@
   min-height: 20rem;
   border-radius: 10px;
   background-color: #fdfbf9;
-  box-shadow: 0 0 100px #fdfbf9;
+  /* box-shadow: 0 0 100px #fdfbf9; */
 }
 
 .petsSecondChild > div:hover {
   transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 0 100px #fdfbf9;
   transition: all 0.5s ease-in-out;
 }
 

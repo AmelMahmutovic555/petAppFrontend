@@ -26,7 +26,7 @@ export default function Home() {
         </article>
       </section>
 
-      <Blog />
+      {/* <Blog /> */}
 
       <Footer />
     </>

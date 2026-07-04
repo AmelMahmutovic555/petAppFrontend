@@ -31,20 +31,25 @@ export default function App() {
   const { loading } = useContext(AuthContext);
 
   if (loading) {
-    return <p className="loadingAuth">Loading...</p>;
+    return (
+      <p className="loadingAuth">
+        <img src="/loading.gif" alt="loading" width={70} height={70} />
+      </p>
+    );
   }
 
   return (
     <>
       {/* <BrowserRouter> */}
-      <AppLayout />
       <Routes>
-        <Route path="/" element={<Home />} />
-
         <Route element={<ProtectedRoute />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
+      </Routes>
+      <AppLayout />
+      <Routes>
+        <Route path="/" element={<Home />} />
 
         <Route element={<PetsRoute />}>
           <Route path="/yourPets" element={<YourPets />} />

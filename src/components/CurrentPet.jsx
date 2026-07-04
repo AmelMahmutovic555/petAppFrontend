@@ -102,7 +102,9 @@ export default function CurrentPet() {
       <section className="currPetParent">
         {/* <Navbar /> */}
         {loading ? (
-          <p className="loading">Loading...</p>
+          <p className="loading">
+            <img src="/loading.gif" alt="loading" width={70} height={70} />
+          </p>
         ) : (
           <>
             <div id="currPetChild">

@@ -131,7 +131,9 @@ export default function Pets() {
 
         <div className="petsSecondChild">
           {loading ? (
-            <p className="loading">Loading...</p>
+            <p className="loading">
+              <img src="/loading.gif" alt="loading" width={70} height={70} />
+            </p>
           ) : (
             pets.map((p) => {
               if (

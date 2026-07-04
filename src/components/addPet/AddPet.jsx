@@ -139,7 +139,7 @@ export default function AddPet() {
             />
             {loading ? (
               <button className="petFormSubmit pfsDisabled" disabled>
-                Loading...
+                <img src="/loading.gif" alt="loading" width={25} height={25} />
               </button>
             ) : (
               <button type="submit" className="petFormSubmit">

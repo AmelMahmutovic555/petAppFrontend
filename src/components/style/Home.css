@@ -39,7 +39,7 @@
   background-repeat: no-repeat;
   width: 100vw;
   /* padding-block: 5rem; */
-  /* min-height: 100vh; */
+  min-height: 100vh;
   /* min-width: 100%; */
   /* max-width: 100%; */
   filter: drop-shadow(10px 10px 50px #56371b);
@@ -81,6 +81,9 @@
 .homeFirstChild {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  margin: 10vh auto;
 }
 
 .homeFirstChild > p,

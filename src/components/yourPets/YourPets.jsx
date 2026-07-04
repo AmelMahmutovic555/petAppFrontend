@@ -232,7 +232,9 @@ export default function YourPets() {
         </div>
         <div className="petsSecondChild">
           {loading ? (
-            <p className="loading">Loading...</p>
+            <p className="loading">
+              <img src="/loading.gif" alt="loading" width={70} height={70} />
+            </p>
           ) : error ? (
             <p className="errorMessage">You did not add any pets.</p>
           ) : (

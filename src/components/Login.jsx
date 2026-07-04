@@ -10,6 +10,8 @@ export default function Login() {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
@@ -39,6 +41,7 @@ export default function Login() {
         password: formInfo.password,
       };
       try {
+        setLoading(true);
         const res = await axios.post(`${apiUrl}/user/login`, data, {
           withCredentials: true,
         });
@@ -61,6 +64,7 @@ export default function Login() {
 
         console.error(error);
       } finally {
+        setLoading(false);
         // setFormInfo("")
       }
     }
@@ -76,9 +80,28 @@ export default function Login() {
   return (
     <>
       <section className="signupContainer">
+        <div>
+          <button className="backBtn">
+            <Link to={"/"}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="54"
+                height="54"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42a.996.996 0 0 0-1.41 0l-6.59 6.59a.996.996 0 0 0 0 1.41l6.59 6.59a.996.996 0 1 0 1.41-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1" />
+              </svg>
+            </Link>
+          </button>
+        </div>
         {/* <Navbar /> */}
         <article className="signupArticle">
           <div className="signupContainerChild" id="signupContainerChild">
+            <div className="welcomeBack">
+              <p className="wb1">Welcome back</p>
+              <p className="wb2">Please enter your details</p>
+            </div>
             {error ? <div className="userError">Wrong credentials!</div> : ""}
             <form className="signupForm" onSubmit={handleSubmit}>
               <label>Email</label>
@@ -100,7 +123,18 @@ export default function Login() {
                 required
                 placeholder="Enter your password"
               />
-              <button type="submit">Submit</button>
+              {loading ? (
+                <button disabled id="disabledAuthBtn">
+                  <img
+                    src="/loading.gif"
+                    alt="loading"
+                    width={25}
+                    height={25}
+                  />
+                </button>
+              ) : (
+                <button type="submit">Submit</button>
+              )}
               <p>
                 Don't have an account? <Link to={"/signup"}>Sign Up Here</Link>
               </p>

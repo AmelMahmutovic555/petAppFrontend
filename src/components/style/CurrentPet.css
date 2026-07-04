@@ -5,7 +5,9 @@
   /* align-items: center; */
   padding-inline: 1rem;
   padding-bottom: 3rem;
-  background: linear-gradient(#60452b, #f5f5dc);
+  background: linear-gradient(#4b321a, #4b321a);
+
+  /* background: linear-gradient(#60452b, #f5f5dc); */
   /* background-color: black; */
   /* background: radial-gradient(
     rgb(170, 190, 197),
@@ -31,7 +33,7 @@
 }
 
 .currPetParent > div {
-  animation: slideUp 1s linear;
+  animation: slideUp 0.5s linear;
 
   background-color: #fdfbf9;
 
@@ -45,7 +47,7 @@
   width: 50%;
   max-width: 50%;
 
-  box-shadow: 0 0 100px #fdfbf9;
+  /* box-shadow: 0 0 100px #fdfbf9; */
 
   /* padding-block: 5rem; */
   margin: 5rem;
@@ -57,6 +59,7 @@
 
 .currPetParent > div:hover {
   transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 0 100px #fdfbf9;
   transition: all 1s ease-in-out;
 }
 

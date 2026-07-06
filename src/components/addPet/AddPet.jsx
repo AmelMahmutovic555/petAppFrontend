@@ -9,7 +9,7 @@ export default function AddPet() {
   const [petInfo, setPetInfo] = useState({
     name: "",
     age: "",
-    phone: "",
+    phone: null,
     type: "Dog",
     image: null,
   });
@@ -49,12 +49,14 @@ export default function AddPet() {
 
     try {
       setLoading(true);
-      const phone =
+      const slicedPhoneNumber =
         petInfo.phone.slice(0, 3) +
         "-" +
         petInfo.phone.slice(3, 6) +
         "-" +
         petInfo.phone.slice(6, 9);
+
+      const phone = toString(slicedPhoneNumber);
 
       const formData = new FormData();
 
@@ -111,7 +113,7 @@ export default function AddPet() {
             />
             <label>Phone</label>
             <input
-              type="text"
+              type="number"
               name="phone"
               value={petInfo.phone}
               onChange={handleChange}

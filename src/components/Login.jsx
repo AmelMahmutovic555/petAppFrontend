@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./style/Signup.css";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../authContext/AuthContext";
 // import Navbar from "./Navbar";
@@ -20,6 +21,12 @@ export default function Login() {
 
   const location = useLocation();
 
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
   useEffect(() => {
     localStorage.removeItem("user");
   }, [location.pathname]);
@@ -32,9 +39,7 @@ export default function Login() {
     }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
+  function onSubmit() {
     async function addData() {
       const data = {
         email: formInfo.email,
@@ -65,7 +70,6 @@ export default function Login() {
         console.error(error);
       } finally {
         setLoading(false);
-        // setFormInfo("")
       }
     }
 
@@ -103,26 +107,60 @@ export default function Login() {
               <p className="wb2">Please enter your details</p>
             </div>
             {error ? <div className="userError">Wrong credentials!</div> : ""}
-            <form className="signupForm" onSubmit={handleSubmit}>
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formInfo.email}
-                onChange={handleChange}
-                required
-                placeholder="Enter your email"
-              />
+            <form className="signupForm" onSubmit={handleSubmit(onSubmit)}>
+              <div className="emailUser">
+                <label>Email</label>
 
-              <label>Password</label>
-              <input
-                type="password"
-                name="password"
-                value={formInfo.password}
-                onChange={handleChange}
-                required
-                placeholder="Enter your password"
-              />
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formInfo.email}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                        message: "Please enter a valid email",
+                      },
+                      onChange: handleChange,
+                    })}
+                    // required
+                    placeholder="Enter your email"
+                  />
+
+                  {errors.email && (
+                    <div className="userErrorMessage">
+                      {errors.email.message}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="passwordUser">
+                <label>Password</label>
+
+                <div>
+                  <input
+                    type="password"
+                    name="password"
+                    value={formInfo.password}
+                    {...register("password", {
+                      required: "Password is required",
+
+                      onChange: handleChange,
+                    })}
+                    placeholder="Enter your password"
+                  />
+
+                  {errors.password && (
+                    <div className="userErrorMessage">
+                      {errors.password.message}
+                    </div>
+                  )}
+                </div>
+              </div>
+
               {loading ? (
                 <button disabled id="disabledAuthBtn">
                   <img
@@ -135,6 +173,7 @@ export default function Login() {
               ) : (
                 <button type="submit">Submit</button>
               )}
+
               <p>
                 Don't have an account? <Link to={"/signup"}>Sign Up Here</Link>
               </p>

@@ -3,6 +3,7 @@ import "./style/Signup.css";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../authContext/AuthContext";
+import { useForm } from "react-hook-form";
 // import Navbar from "./Navbar";
 export default function Signup() {
   const [formInfo, setFormInfo] = useState({
@@ -20,6 +21,12 @@ export default function Signup() {
 
   const location = useLocation();
 
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
   useEffect(() => {
     localStorage.removeItem("user");
   }, [location.pathname]);
@@ -32,9 +39,7 @@ export default function Signup() {
     }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
+  function onSubmit() {
     async function addData() {
       const data = {
         name: formInfo.name,
@@ -97,43 +102,104 @@ export default function Signup() {
             </div>
             {error ? <div className="userError">User already exists!</div> : ""}
 
-            <form className="signupForm" onSubmit={handleSubmit}>
-              <label>Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formInfo.name}
-                onChange={handleChange}
-                required
-                placeholder="Enter your name"
-              />
-              <label>Surname</label>
-              <input
-                type="text"
-                name="surname"
-                value={formInfo.surname}
-                onChange={handleChange}
-                required
-                placeholder="Enter your surname"
-              />
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formInfo.email}
-                onChange={handleChange}
-                required
-                placeholder="Enter your email"
-              />
-              <label>Password</label>
-              <input
-                type="password"
-                name="password"
-                value={formInfo.password}
-                onChange={handleChange}
-                required
-                placeholder="Enter your password"
-              />
+            <form className="signupForm" onSubmit={handleSubmit(onSubmit)}>
+              <div className="nameUser">
+                <label>Name</label>
+
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formInfo.name}
+                    {...register("name", {
+                      required: "Name is required",
+                      onChange: handleChange,
+                    })}
+                    placeholder="Enter your name"
+                  />
+
+                  {errors.name && (
+                    <div className="userErrorMessage">
+                      {errors.name.message}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="surnameUser">
+                <label>Surname</label>
+
+                <div>
+                  <input
+                    type="text"
+                    name="surname"
+                    value={formInfo.surname}
+                    {...register("surname", {
+                      required: "Surname is required",
+                      onChange: handleChange,
+                    })}
+                    placeholder="Enter your surname"
+                  />
+
+                  {errors.surname && (
+                    <div className="userErrorMessage">
+                      {errors.surname.message}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="emailUser">
+                <label>Email</label>
+
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formInfo.email}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                        message: "Please enter a valid email",
+                      },
+                      onChange: handleChange,
+                    })}
+                    placeholder="Enter your email"
+                  />
+
+                  {errors.email && (
+                    <div className="userErrorMessage">
+                      {errors.email.message}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="passwordUser">
+                <label>Password</label>
+
+                <div>
+                  <input
+                    type="password"
+                    name="password"
+                    value={formInfo.password}
+                    {...register("password", {
+                      required: "Password is required",
+                      onChange: handleChange,
+                    })}
+                    placeholder="Enter your password"
+                  />
+
+                  {errors.password && (
+                    <div className="userErrorMessage">
+                      {errors.password.message}
+                    </div>
+                  )}
+                </div>
+              </div>
+
               {loading ? (
                 <button disabled id="disabledAuthBtn">
                   <img

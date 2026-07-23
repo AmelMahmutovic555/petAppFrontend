@@ -260,6 +260,10 @@
   color: #53351f;
 }
 
+.loading {
+  text-align: center;
+}
+
 /* 
 @media (min-width: 2000px) {
   .petsSecondChild > div {

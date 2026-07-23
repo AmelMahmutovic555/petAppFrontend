@@ -1,6 +1,8 @@
 .addPetParent {
   /* background-color: red; */
-  background: linear-gradient(#4b321a, #4b321a);
+  /* background: linear-gradient(#4b321a, #4b321a); */
+  background-color: #f3e2cd;
+
   padding-top: 7rem;
   padding-bottom: 1rem;
   min-height: 100vh;
@@ -52,6 +54,8 @@
 .petFormInfo > label {
   align-self: start;
   margin-left: 3rem;
+  color: #53351f;
+  /* font-weight: 900; */
 }
 
 .petFileImage {
@@ -66,6 +70,8 @@
   align-self: center;
   background-color: transparent;
   border-radius: 10px;
+  color: #53351f;
+  /* font-weight: 900; */
 }
 
 .petFormSubmit:hover {

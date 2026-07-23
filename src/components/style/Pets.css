@@ -7,8 +7,9 @@
     rgb(161, 165, 168)
   ); */
   /* background: linear-gradient(#57391d, #3e301c); */
-  background: linear-gradient(#4b321a, #4b321a);
-
+  /* background: linear-gradient(#624b38, #624b35); */
+  /* background: linear-gradient(135deg, #fff8ee 0%, #f3e2cd 55%, #e7c7a2 100%); */
+  background-color: #f3e2cd;
   /* background: radial-gradient(
     rgb(170, 190, 197),
     rgb(192, 199, 202),
@@ -38,7 +39,8 @@
   font-weight: 900;
   text-align: center;
   margin: 1.5rem;
-  color: white;
+  /* color: white; */
+  color: #53351f;
   font-family: "Josefin Sans", sans-serif;
 
   /* font-family: Georgia, "Times New Roman", Times, serif; */
@@ -137,6 +139,8 @@
   font-size: 1.3rem;
   /* font-weight: 900; */
   text-align: start;
+  color: #53351f;
+
   /* width: 100%; */
   /* max-width: 100%; */
 }
@@ -253,6 +257,7 @@
 .petName {
   font-size: 2rem;
   font-weight: 900;
+  color: #53351f;
 }
 
 /* 

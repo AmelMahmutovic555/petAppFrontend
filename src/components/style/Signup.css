@@ -3,11 +3,13 @@
   /* background-repeat: no-repeat; */
   /* background-position: right; */
   /* background-size: cover; */
-  background: linear-gradient(
+  /* background: linear-gradient(
     rgb(223, 222, 222),
     rgb(231, 231, 231),
     rgb(240, 240, 240)
-  );
+  ); */
+  background-color: #f3e2cd;
+
   /* background: linear-gradient(#4b321a, #4b321a); */
   min-height: 100vh;
   padding-bottom: 3rem;
@@ -48,6 +50,7 @@
 .wb1 {
   font-size: 2rem;
   color: #1f1f1f;
+  /* color: #53351f; */
 }
 
 .wb2 {
@@ -70,11 +73,15 @@
 }
 
 .backBtn > * {
-  color: #1f1f1f;
+  color: #53351f;
+
+  /* color: #1f1f1f; */
 }
 
 .backBtn:hover:after {
   content: "Back";
+  color: #53351f;
+
   font-size: 1.5rem;
   opacity: 1;
   transition: all 1s ease;

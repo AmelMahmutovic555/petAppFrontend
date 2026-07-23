@@ -1,5 +1,6 @@
 .yourPetsParent {
-  background: linear-gradient(#4b321a, #4b321a);
+  /* background: linear-gradient(#4b321a, #4b321a); */
+  background-color: #f3e2cd;
 
   /* background: radial-gradient(
     rgb(170, 190, 197),
@@ -37,6 +38,8 @@
   border-radius: 10px;
   background-color: transparent;
   cursor: pointer;
+  /* color: #53351f; */
+
   /* width: 100%;
   max-width: 100%; */
 }
@@ -44,6 +47,9 @@
 .changeInfo {
   background-color: rgb(56, 56, 14);
   color: white;
+  /* color: #53351f; */
+
+  /* color: #53351f; */
 }
 
 .changeInfo:hover {
@@ -56,6 +62,7 @@
 .remove {
   background-color: rgb(72, 17, 17);
   color: white;
+  /* color: #53351f; */
 }
 
 .remove:hover {
@@ -87,7 +94,12 @@
   font-size: 1.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
-  color: white;
+  /* color: white; */
+  color: #53351f;
+}
+
+.errorMessage {
+  color: #53351f;
 }
 
 .yourPetsFirstChild > select {

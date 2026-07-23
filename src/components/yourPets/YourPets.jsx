@@ -223,7 +223,7 @@ export default function YourPets() {
     <>
       <section className="yourPetsParent">
         <div className="yourPetsFirstChild">
-          <p>Filter By:</p>
+          <p className="errorMessage">Filter By:</p>
           <select value={filterPet} onChange={handleFilter}>
             <option value={"both"}>Both</option>
             <option value={"dog"}>Dogs</option>

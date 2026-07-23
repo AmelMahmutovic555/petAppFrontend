@@ -1,5 +1,6 @@
 .toBabysitParent {
-  background: linear-gradient(#4b321a, #4b321a);
+  /* background: linear-gradient(#4b321a, #4b321a); */
+  background-color: #f3e2cd;
 
   /* background: radial-gradient(
     rgb(170, 190, 197),

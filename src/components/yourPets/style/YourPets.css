@@ -8,7 +8,7 @@
     rgb(172, 180, 182),
     rgb(209, 210, 212)
   ); */
-  padding-top: 7.5rem;
+  padding-top: 5rem;
 
   min-height: 100dvh;
 }
@@ -47,6 +47,8 @@
 .changeInfo {
   background-color: rgb(56, 56, 14);
   color: white;
+  width: 70%;
+  max-width: 70%;
   /* color: #53351f; */
 
   /* color: #53351f; */
@@ -62,6 +64,8 @@
 .remove {
   background-color: rgb(72, 17, 17);
   color: white;
+  width: 70%;
+  max-width: 70%;
   /* color: #53351f; */
 }
 
@@ -100,11 +104,20 @@
 
 .errorMessage {
   color: #53351f;
+  margin-top: 1rem;
 }
 
 .yourPetsFirstChild > select {
   padding: 1rem 3rem;
   border-radius: 10px;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .changeInfo,
+  .remove {
+    width: 100%;
+    max-width: 100%;
+  }
 }

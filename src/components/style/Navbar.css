@@ -1,7 +1,7 @@
 .animalNavbar {
   display: flex;
   justify-content: space-around;
-  padding-block: 1rem;
+  padding-block: 0.5rem;
   background: #4b321a;
   z-index: 9999999;
   /* color: white; */
@@ -22,7 +22,7 @@
 
 .animalNavbar > ul > a {
   padding-inline: 1rem;
-  margin: 0.5rem 0.3rem;
+  margin: 0.3rem 0.3rem;
   /* padding-block: 0.5rem; */
   text-decoration: none;
   color: black;
@@ -43,7 +43,7 @@
 }
 
 .animalNavbar > ul > a > li {
-  padding: 0.3rem;
+  padding: 0.5rem;
 }
 
 .firstChildNavbar {

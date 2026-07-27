@@ -118,11 +118,11 @@ export default function Pets() {
         )}
 
         <div className="petsFirstChild">
-          <div>
+          <div id="availablePets">
             <p>Available Pets</p>
           </div>
 
-          <select value={selectedValue} onChange={handleChange}>
+          <select value={selectedValue} onChange={handleChange} id="petOption">
             <option value={"both"}>Both</option>
             <option value={"dog"}>Dogs</option>
             <option value={"cat"}>Cats</option>
@@ -146,13 +146,20 @@ export default function Pets() {
                       <p className="foundBabysitter">Found a Babysitter!</p>
                       <img src={p.image} alt="pets" width={300} height={200} />
 
-                      <div className="petsInformation">
+                      <div className="petsInformation" id="petsInformation">
                         <p className="petName">{p.name}</p>
-                        <p>📅 Age: {p.age}</p>
-                        <p>📞 Contact Number: {p.phone}</p>
+                        <div className="petTypeAge">
+                          <p>
+                            {p.type === "cat" ? "🐱" : "🐾"}
+                            {p.type.split("")[0].toUpperCase() +
+                              p.type.slice(1, 3)}
+                          </p>
+                          <p>📅 {p.age} years old</p>
+                        </div>
+                        <p className="petPhone">📞 {p.phone}</p>
                         <Link className="babysitLink">
                           <button className="babysitBtn" disabled>
-                            {p.type === "cat" ? "🐱" : "🐾"} Babysit
+                            {p.type === "cat" ? "🐱" : "🐾"} View Profile
                           </button>
                         </Link>
                       </div>
@@ -164,17 +171,24 @@ export default function Pets() {
                   <div key={p.id}>
                     <img src={p.image} alt="pets" width={300} height={200} />
 
-                    <div className="petsInformation">
+                    <div className="petsInformation" id="petsInformation">
                       <p className="petName">{p.name}</p>
-                      <p>📅 Age: {p.age}</p>
+                      <div className="petTypeAge">
+                        <p>
+                          {p.type === "cat" ? "🐱" : "🐾"}{" "}
+                          {p.type.split("")[0].toUpperCase() +
+                            p.type.slice(1, 3)}
+                        </p>
+                        <p>📅 {p.age} years old</p>
+                      </div>
 
-                      <p>📞 Contact Number: {p.phone}</p>
+                      <p className="petPhone">📞 {p.phone}</p>
                       <a
                         href={`/pets/${p.name}/${p.age}/${p.phone}/${p.type}`}
                         className="babysitLink"
                       >
                         <button className="babysitBtn">
-                          {p.type === "cat" ? "🐱" : "🐾"} Babysit
+                          {p.type === "cat" ? "🐱" : "🐾"} View Profile
                         </button>
                       </a>
                     </div>

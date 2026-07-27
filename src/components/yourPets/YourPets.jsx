@@ -244,7 +244,9 @@ export default function YourPets() {
 
                 <div className="petsInformation" key={p.id}>
                   <p className="petName">{p.name}</p>
-                  <p>📅 Age: {p.age}</p>
+                  <div className="petTypeAge">
+                    <p>📅 {p.age} years old</p>
+                  </div>
                   <div className="yourPetsInfo" key={p.id}>
                     <button
                       className="changeInfo"

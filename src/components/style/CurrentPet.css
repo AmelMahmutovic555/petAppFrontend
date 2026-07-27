@@ -31,6 +31,8 @@
   justify-content: center;
   align-items: center;
   margin: 10vh auto;
+  width: 50%;
+  max-width: 50%;
 }
 
 .currPetParent > div {
@@ -44,7 +46,7 @@
   border-radius: 10px;
   /* z-index: 10000; */
   /* max-width: 1000px; */
-  min-height: 60vh;
+  min-height: 50vh;
   width: 50%;
   max-width: 50%;
 
@@ -71,6 +73,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
   /* margin-block: 3rem; */
 }
 
@@ -102,6 +106,7 @@
   max-height: 100%;
   min-height: 100%;
   border-radius: 10px;
+  padding: 0.5rem;
 }
 
 .babysitBtn1 {
@@ -235,7 +240,7 @@
   transform: translateY(-3px);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1400px) {
   .currPetParent {
     width: 100%;
   }
@@ -245,15 +250,28 @@
   }
   #currPetChild {
     margin: 10vh auto;
+    /* display: flex; */
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
   }
 
   .petInfo {
-    padding-block: 3rem;
+    /* padding: 0; */
+    /* padding-block: 3rem; */
+    padding: 1rem;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    max-width: 100%;
+    /* align-items: start; */
     /* padding: 1rem 0; */
     /* width: 100%; */
+  }
+
+  #petTypeAge {
+    display: flex;
+    justify-content: start;
   }
 
   .babysitBtn1 {

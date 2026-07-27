@@ -150,7 +150,7 @@ export default function ToBabysit() {
     <>
       <section className="toBabysitParent">
         <div className="yourPetsFirstChild">
-          <p>Filter By:</p>
+          <p className="errorMessage">Filter By:</p>
           <select value={filterPet} onChange={handleFilter}>
             <option value={"both"}>Both</option>
             <option value={"dog"}>Dogs</option>
@@ -171,8 +171,9 @@ export default function ToBabysit() {
 
                 <div className="petsInformation">
                   <p className="petName">{p.name}</p>
-                  <p>📅 Age: {p.age}</p>
-
+                  <div className="petTypeAge">
+                    <p>📅 {p.age} years old</p>
+                  </div>
                   <button
                     className="removeBabysit"
                     onClick={() => openDialog(p)}

@@ -111,8 +111,15 @@ export default function CurrentPet() {
               <img src={pet.imageUrl} alt="pet" className="petImg" />
               <div className="petInfo">
                 <p className="petName">{pet.name}</p>
-                <p>📅 Age: {pet.age}</p>
-                <p>📞 Contact: {pet.phone}</p>
+                <div className="petTypeAge" id="petTypeAge">
+                  <p>
+                    {pet.type === "cat" ? "🐱" : "🐾"}{" "}
+                    {pet.type.split("")[0].toUpperCase() + pet.type.slice(1, 3)}
+                  </p>
+                  <p>📅 {pet.age} years old</p>
+                </div>
+
+                <p className="petPhone">📞 {pet.phone}</p>
                 {/* <Link to={`/`} className="babysitLink"> */}
                 <button
                   className="babysitBtn1"

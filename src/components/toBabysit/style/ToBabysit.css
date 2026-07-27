@@ -8,14 +8,14 @@
     rgb(172, 180, 182),
     rgb(209, 210, 212)
   ); */
-  padding-top: 7.5rem;
+  padding-top: 5rem;
 
   min-height: 100dvh;
 }
 
 .removeBabysit {
-  width: 100%;
-  max-width: 100%;
+  width: 70%;
+  max-width: 70%;
   font-size: 1.1rem;
   text-align: center;
   padding: 1rem 2rem;
@@ -30,4 +30,11 @@
   color: rgb(75, 3, 3);
   border: 1px solid rgb(75, 3, 3);
   transition: all 1s ease;
+}
+
+@media (max-width: 800px) {
+  .removeBabysit {
+    width: 100%;
+    max-width: 100%;
+  }
 }

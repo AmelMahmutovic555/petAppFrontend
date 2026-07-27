@@ -105,6 +105,7 @@
 .errorMessage {
   color: #53351f;
   margin-top: 1rem;
+  text-align: center;
 }
 
 .yourPetsFirstChild > select {

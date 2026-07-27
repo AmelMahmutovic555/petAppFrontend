@@ -143,7 +143,7 @@ export default function Pets() {
                 if (p.userId !== null) {
                   return (
                     <div key={p.id} className="foundBabysitterParent">
-                      <p className="foundBabysitter">Found a Babysitter!</p>
+                      <p className="foundBabysitter">Babysitter found</p>
                       <img src={p.image} alt="pets" width={300} height={200} />
 
                       <div className="petsInformation" id="petsInformation">

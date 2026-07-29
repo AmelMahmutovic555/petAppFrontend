@@ -79,7 +79,7 @@ export default function ToBabysit() {
         userId: null,
       };
       const res = await axios.put(
-        `${apiUrl}/pets/edit/${selectedPet.name}/${selectedPet.age}/${selectedPet.phone}/${selectedPet.type}`,
+        `${apiUrl}/pets/edit1/${selectedPet.name}/${selectedPet.age}/${selectedPet.phone}/${selectedPet.type}`,
         updateInfo,
         {
           withCredentials: true,

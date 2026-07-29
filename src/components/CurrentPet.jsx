@@ -75,7 +75,7 @@ export default function CurrentPet() {
       // console.log(pet?.name)
       // }
       const res = await axios.put(
-        `${apiUrl}/pets/edit/${name}/${age}/${phone}/${type}`,
+        `${apiUrl}/pets/edit1/${name}/${age}/${phone}/${type}`,
         babysitInfo,
         {
           withCredentials: true,

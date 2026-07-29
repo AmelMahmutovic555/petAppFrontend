@@ -149,6 +149,10 @@ export default function ToBabysit() {
   return (
     <>
       <section className="toBabysitParent">
+        <div id="currPetTitle" className="yourPetTitle">
+          <p>Pets You’re Babysitting</p>
+          <p>View and manage the pets you’ve agreed to care for.</p>
+        </div>
         <div className="yourPetsFirstChild">
           <p className="errorMessage">Filter By:</p>
           <select value={filterPet} onChange={handleFilter}>

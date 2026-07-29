@@ -115,10 +115,19 @@
   cursor: pointer;
 }
 
+.yourPetTitle {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
 @media (max-width: 800px) {
   .changeInfo,
   .remove {
     width: 100%;
     max-width: 100%;
+  }
+
+  .yourPetTitle {
+    margin-top: 1rem;
   }
 }

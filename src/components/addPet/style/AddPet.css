@@ -16,9 +16,9 @@
   gap: 1rem;
   background-color: white;
   margin: auto;
-  width: 90%;
-  max-width: 90%;
-  padding-block: 5.5rem;
+  width: 60%;
+  max-width: 60%;
+  padding-block: 3rem;
   border-radius: 10px;
   /* padding-inline: 13rem; */
 }
@@ -107,12 +107,24 @@
   background-color: none;
 }
 
-@media (max-width: 500px) {
+.cpt {
+  /* margin-top: -1rem; */
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 650px) {
   .petFormInfo > label {
     margin-left: 1rem;
   }
 
   .addPetChild {
     padding-block: 3rem;
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .cpt {
+    margin-top: -3rem;
+    margin-bottom: 2rem;
   }
 }

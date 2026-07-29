@@ -243,6 +243,10 @@ export default function YourPets() {
   return (
     <>
       <section className="yourPetsParent">
+        <div id="currPetTitle" className="yourPetTitle">
+          <p>Your Pets</p>
+          <p>View, update, or remove the pets you’ve added to PetCare Match.</p>
+        </div>
         <div className="yourPetsFirstChild">
           <p className="errorMessage">Filter By:</p>
           <select value={filterPet} onChange={handleFilter}>

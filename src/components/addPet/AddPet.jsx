@@ -84,6 +84,12 @@ export default function AddPet() {
   return (
     <>
       <section className="addPetParent">
+        <div id="currPetTitle" className="cpt">
+          <p>Add Your Pet</p>
+          <p>
+            Create a profile so trusted pet sitters can get to know your pet.
+          </p>
+        </div>
         <div className="addPetChild">
           {error && (
             <div className="errorExists">

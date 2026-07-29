@@ -107,6 +107,12 @@ export default function CurrentPet() {
           </p>
         ) : (
           <>
+            <div id="currPetTitle">
+              <p>Meet {pet.name}</p>
+              <p>
+                Learn more about {pet.name} and see if you're the right match.
+              </p>
+            </div>
             <div id="currPetChild">
               <img src={pet.imageUrl} alt="pet" className="petImg" />
               <div className="petInfo">

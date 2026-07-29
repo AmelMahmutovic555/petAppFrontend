@@ -177,7 +177,7 @@ export default function ToBabysit() {
                   <p className="petName">{p.name}</p>
                   <div className="petTypeAge">
                           <p>
-                            {p.type === "cat" ? "🐱" : "🐾"}
+                            {p.type === "cat" ? "🐱" : "🐾"}{" "}
                             {p.type.split("")[0].toUpperCase() +
                               p.type.slice(1, 3)}
                           </p>

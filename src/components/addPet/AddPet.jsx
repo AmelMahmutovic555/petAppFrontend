@@ -56,13 +56,11 @@ export default function AddPet() {
         "-" +
         petInfo.phone.slice(6, 9);
 
-      const phone = toString(slicedPhoneNumber);
-
       const formData = new FormData();
 
       formData.append("name", petInfo.name);
       formData.append("age", parseInt(petInfo.age));
-      formData.append("phone", phone);
+      formData.append("phone", slicedPhoneNumber);
       formData.append("type", petInfo.type.toLowerCase());
 
       if (petInfo.image) {

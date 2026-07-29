@@ -9,7 +9,7 @@ export default function YourPets() {
   const [petInfo, setPetInfo] = useState({
     name: "",
     age: "",
-    phone: "",
+    phone: null,
     type: "dog",
     image: "",
   });
@@ -70,6 +70,13 @@ export default function YourPets() {
     setPetInfo((prevState) => ({
       ...prevState,
       [name]: value,
+    }));
+  }
+
+  function handleImageChange(e) {
+    setPetInfo((prevState) => ({
+      ...prevState,
+      image: e.target.files[0],
     }));
   }
 
@@ -145,18 +152,32 @@ export default function YourPets() {
         petInfo.phone.slice(3, 6) +
         "-" +
         petInfo.phone.slice(6, 9);
-      const updateInfo = {
-        name: petInfo.name,
-        age: petInfo.age,
-        phone: phone,
-        type: petInfo.type.toLowerCase(),
-        image: petInfo.image,
-        toBabysit: user?.userId,
-      };
+
+      const formData = new FormData();
+
+      formData.append("name", petInfo.name);
+      formData.append("age", parseInt(petInfo.age));
+      formData.append("phone", phone);
+      formData.append("type", petInfo.type.toLowerCase());
+
+      formData.append("toBabysit", user?.userId);
+
+      if (petInfo.image) {
+        formData.append("image", petInfo.image);
+      }
+
+      // const updateInfo = {
+      //   name: petInfo.name,
+      //   age: petInfo.age,
+      //   phone: phone,
+      //   type: petInfo.type.toLowerCase(),
+      //   image: petInfo.image,
+      //   toBabysit: user?.userId,
+      // };
 
       await axios.put(
         `${apiUrl}/pets/edit/${selectedPet.name}/${selectedPet.age}/${selectedPet.phone}/${selectedPet.type}`,
-        updateInfo,
+        formData,
         {
           withCredentials: true,
         },
@@ -245,6 +266,10 @@ export default function YourPets() {
                 <div className="petsInformation" key={p.id}>
                   <p className="petName">{p.name}</p>
                   <div className="petTypeAge">
+                    <p>
+                      {p.type === "cat" ? "🐱" : "🐾"}{" "}
+                      {p.type.split("")[0].toUpperCase() + p.type.slice(1, 3)}
+                    </p>
                     <p>📅 {p.age} years old</p>
                   </div>
                   <div className="yourPetsInfo" key={p.id}>
@@ -289,7 +314,7 @@ export default function YourPets() {
                       />
                       <label id="updatePetInfo3">Phone</label>
                       <input
-                        type="text"
+                        type="number"
                         name="phone"
                         value={petInfo.phone}
                         onChange={handleChange}
@@ -312,8 +337,9 @@ export default function YourPets() {
                         type="file"
                         name="image"
                         className="petFileImage"
-                        value={petInfo.image}
-                        onChange={handleChange}
+                        accept="image/*"
+                        // value={petInfo.image}
+                        onChange={handleImageChange}
                       />
                       <button type="submit" className="petFormSubmit">
                         Submit

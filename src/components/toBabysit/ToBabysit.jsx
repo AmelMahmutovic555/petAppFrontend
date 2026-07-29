@@ -176,8 +176,14 @@ export default function ToBabysit() {
                 <div className="petsInformation">
                   <p className="petName">{p.name}</p>
                   <div className="petTypeAge">
-                    <p>📅 {p.age} years old</p>
-                  </div>
+                          <p>
+                            {p.type === "cat" ? "🐱" : "🐾"}
+                            {p.type.split("")[0].toUpperCase() +
+                              p.type.slice(1, 3)}
+                          </p>
+                          <p>📅 {p.age} years old</p>
+                        </div>
+                        <p className="petPhone">📞 {p.phone}</p>
                   <button
                     className="removeBabysit"
                     onClick={() => openDialog(p)}

@@ -83,11 +83,11 @@ export default function CurrentPet() {
       );
       if (res.data) {
         setSuccessBabysit(
-          "Successfully applied to babysit " +
+          "Successfully applied to pet sit " +
             pet.name +
             ", you will be contacted soon.",
         );
-        navigate("/toBabysit", {
+        navigate("/toPetsit", {
           replace: true,
         });
       }

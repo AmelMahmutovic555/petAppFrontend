@@ -20,7 +20,7 @@ export default function Home() {
             <h1 className="WelcomePetCareHeading">Welcome To PetCare Match</h1>
             <p>Easy way to connect to our furry friends.</p>
             <a href={"/pets"} id="petsBtnHome">
-              <button>Become a Babysitter</button>
+              <button>Become a Pet sitter</button>
             </a>
           </div>
         </article>

@@ -150,7 +150,7 @@ export default function ToBabysit() {
     <>
       <section className="toBabysitParent">
         <div id="currPetTitle" className="yourPetTitle">
-          <p>Pets You’re Babysitting</p>
+          <p>Pets You’re Pet sitting</p>
           <p>View and manage the pets you’ve agreed to care for.</p>
         </div>
         <div className="yourPetsFirstChild">
@@ -167,7 +167,7 @@ export default function ToBabysit() {
               <img src="/loading.gif" alt="loading" width={70} height={70} />
             </p>
           ) : error ? (
-            <p className="errorMessage">You do not have any pets to babysit.</p>
+            <p className="errorMessage">You do not have any pets to pet sit.</p>
           ) : (
             pets.map((p) => (
               <div key={p.id}>

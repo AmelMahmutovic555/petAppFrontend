@@ -53,7 +53,7 @@ export default function App() {
 
         <Route element={<PetsRoute />}>
           <Route path="/yourPets" element={<YourPets />} />
-          <Route path="/toBabysit" element={<ToBabysit />} />
+          <Route path="/toPetsit" element={<ToBabysit />} />
         </Route>
 
         <Route path="/pets" element={<Pets />} />

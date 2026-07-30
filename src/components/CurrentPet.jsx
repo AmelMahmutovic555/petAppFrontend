@@ -132,7 +132,7 @@ export default function CurrentPet() {
                   id="babysitBtn"
                   onClick={openDialog}
                 >
-                  {pet.type === "cat" ? "🐱" : "🐾"} Babysit
+                  {pet.type === "cat" ? "🐱" : "🐾"} Pet-sit
                 </button>
                 {/* </Link> */}
               </div>
@@ -142,7 +142,7 @@ export default function CurrentPet() {
                 <button id="xBtn" onClick={closeDialog}>
                   X
                 </button>
-                <h3>Are you sure you want to apply to babysit {pet?.name}?</h3>
+                <h3>Are you sure you want to apply to pet sit {pet?.name}?</h3>
                 <div>
                   <button id="yesBtn" onClick={handleBabysit}>
                     Yes

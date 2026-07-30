@@ -50,8 +50,8 @@ export default function Navbar() {
                     <li>Your Pets</li>
                   </a>
 
-                  <a href={"/toBabysit"}>
-                    <li>Pets To Babysit</li>
+                  <a href={"/toPetsit"}>
+                    <li>Pets To Pet-Sit</li>
                   </a>
                 </>
               )}

@@ -91,7 +91,7 @@ export default function Navbar() {
                     <li>Your Pets</li>
                   </a>
 
-                  <a href={"/toBabysit"}>
+                  <a href={"/toPetsit"}>
                     <li>Pets To Babysit</li>
                   </a>
                 </>
